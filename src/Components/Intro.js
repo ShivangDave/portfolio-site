@@ -14,11 +14,11 @@ export default class Intro extends React.Component {
   }
 
   componentDidMount() {
-    // document.addEventListener('scroll', this.handleScroll)
+    document.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount() {
-    // document.removeEventListener('scroll', this.handleScroll)
+    document.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll = (e) => {
@@ -43,41 +43,64 @@ export default class Intro extends React.Component {
 
   render(){
     return (
-      <motion.div className={'intro-container'} ref={this.element}>
+      <motion.div id={'navbar'} className={'intro-container'} ref={this.element}>
 
         <motion.div animate={{
-          scale: this.state.scale,
-          rotate: 135
-        }} className={'avatar-container'}>
+            scale: [1, 2, 2, 1, 1],
+            rotate: [0, 0, 270, 270, 0, 135, 0],
+            borderRadius: ["20%", "20%", "50%", "50%", "20%", "50%"],
+          }}
+          transition={{ duration: 1 }}
+          className={'avatar-container'}
+        >
           <motion.img
             src={'https://avatars3.githubusercontent.com/u/5992751?s=460&u=01873cd9275344ec8c6198676d70b506a0f6dd2b&v=4'}
             alt={''}
-            animate={{
-              rotate: 225,
-              scale: 1
+            initial={{
+              opacity: 0
             }}
-            className={'avatar'} />
+            animate={{
+              scale: 1,
+              opacity: 1
+            }}
+            transition={{ delay: 1.5 }}
+            className={'avatar'} draggable={'false'}
+          />
         </motion.div>
 
 
-        <motion.h1 animate={{
+        <motion.h2
+         intial= {{
+           scale: 0,
+           opacity: 0
+         }}
+         animate={{
           fontSize: 70,
-          color: 'rgba(253, 177, 177, 1)'
-        }} className={'intro'} ref={this.myRef} >
+          color: 'rgba(253, 177, 177, 1)',
+          scale: 1,
+          opacity: 1
+        }}
+        transition={{ delay: 2, duration: 0.5 }}
+        className={'intro'} ref={this.myRef} >
           Hey There!
-        </motion.h1>
+        </motion.h2>
 
-        <Link to={'skills'}
-          smooth={true}
-          offset={0}
-          duration= {500}>
-          <motion.h3 className={'clickme'} animate={{
-            scale: 2,
+        <motion.span className={'clickme'} animate={{
+            scale: 0.5,
             y: 200
-          }}>
-            downarrow
-          </motion.h3>
-        </Link>
+          }}
+          transition={{ duration: 1 }}
+          whileHover={{ scale: 0.6, duration: 0.5 }}
+        >
+          <Link to={'skills'}
+            smooth={true}
+            offset={0}
+            duration={300}>
+            <img src={'/expand-arrow-100.png'} draggable={'false'} alt={''} />
+          </Link>
+        </motion.span>
+
+
 
       </motion.div>
     )
