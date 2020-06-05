@@ -1,13 +1,12 @@
 import React from 'react';
 import { motion } from "framer-motion"
-import _ from 'lodash';
+
+import { Link } from 'react-scroll';
 
 export default class Intro extends React.Component {
 
   constructor(){
     super()
-    this.element = React.createRef();
-
     this.state = {
       scale: 1,
       scrollPosition: 0
@@ -15,25 +14,27 @@ export default class Intro extends React.Component {
   }
 
   componentDidMount() {
-    document.addEventListener('scroll', this.handleScroll)
+    // document.addEventListener('scroll', this.handleScroll)
   }
 
   componentWillUnmount() {
-    document.removeEventListener('scroll', this.handleScroll)
+    // document.removeEventListener('scroll', this.handleScroll)
   }
 
   handleScroll = (e) => {
-    console.log(e.target)
-    console.log(window.pageYOffset)
 
     if(window.pageYOffset <= 0){
       this.setState({ scale: 1, scrollPosition: 0 })
+      this.props.handleToTop(false)
     }else if(window.pageYOffset >= 600){
       this.setState({ scale: 0 })
+      this.props.handleToTop(true)
     }else{
       if(window.pageYOffset > 0){
-        this.setState({ scale: this.state.scale + 0.065, scrollPosition: 0 })
+        this.props.handleToTop(true)
+        this.setState({ scale: this.state.scale + 0.4, scrollPosition: 0 })
       }else{
+        this.props.handleToTop(true)
         this.setState({ scale: this.state.scale - 0.5, scrollPosition: 0 })
       }
     }
@@ -48,8 +49,16 @@ export default class Intro extends React.Component {
           scale: this.state.scale,
           rotate: 135
         }} className={'avatar-container'}>
-
+          <motion.img
+            src={'https://avatars3.githubusercontent.com/u/5992751?s=460&u=01873cd9275344ec8c6198676d70b506a0f6dd2b&v=4'}
+            alt={''}
+            animate={{
+              rotate: 225,
+              scale: 1
+            }}
+            className={'avatar'} />
         </motion.div>
+
 
         <motion.h1 animate={{
           fontSize: 70,
@@ -58,12 +67,17 @@ export default class Intro extends React.Component {
           Hey There!
         </motion.h1>
 
-        <motion.a animate={{
-          scale: 2,
-          y: 200
-        }} href={'#skills'} className={'clickme'} ref={this.myRef} >
-          downarrow
-        </motion.a>
+        <Link to={'skills'}
+          smooth={true}
+          offset={0}
+          duration= {500}>
+          <motion.h3 className={'clickme'} animate={{
+            scale: 2,
+            y: 200
+          }}>
+            downarrow
+          </motion.h3>
+        </Link>
 
       </motion.div>
     )

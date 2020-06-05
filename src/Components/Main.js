@@ -7,12 +7,30 @@ import Posts from './Posts';
 import Gallery from './Gallery';
 import Footer from './Footer';
 
+import { animateScroll as scroll } from 'react-scroll';
+
+
 export default class Main extends React.Component {
+
+  state = {
+    showBackToTop: false
+  }
+
+  handleToTop = (decide) => {
+    this.setState({ showBackToTop: decide })
+  }
+
+  showBackToTop = () => {
+    return this.state.showBackToTop
+      ? <button onClick={() => scroll.scrollToTop()} className={'takemetothetop'}> to the top </button>
+        : null
+  }
 
   render(){
     return (
-      <div className={'main-container'}>
-        <Intro />
+      <div ref={this.container} className={'main-container'}>
+        <Intro handleToTop={this.handleToTop} />
+        { this.showBackToTop() }
         <Skills />
         <Projects />
         <Posts />
