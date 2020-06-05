@@ -1,0 +1,81 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/Quicksand-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway Light';
+  src: url('/Raleway-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --accent: rgba(253, 177, 177, 1);
+}
+
+body {
+  margin: 0px;
+}
+
+.main-container {
+}
+
+.intro-container {
+  height: 100vh;
+  text-align: center;
+
+  color: white;
+  font-family: 'Quicksand';
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
+
+}
+
+.avatar-container {
+  height: 180px;
+  width:180px;
+  border: 2px transparent;
+  border-radius: 40px;
+  background-color: var(--accent);
+}
+
+.clickme{
+  border: 0px;
+  font-family: 'Quicksand';
+  background-color: var(--accent);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.skills-container {
+  height: 600px;
+  background-color: var(--accent);
+}
+
+.projects-container {
+  height: 300px;
+  background-color: red;
+}
+
+.posts-container {
+  height: 300px;
+}
+
+.gallery-container {
+  height: 300px;
+  background-color: green;
+}
+
+.footer-container {
+  height: 200px;
+  background-color: #161616;
+}
