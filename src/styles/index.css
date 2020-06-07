@@ -12,21 +12,23 @@
   font-style: normal;
 }
 
-html {
-}
-
 :root {
   --accent: rgba(253, 177, 177, 1);
 }
 
-body {
+html, body {
   margin: 0px;
+  overflow: auto !important;
 }
 
 .main-container {
+  height: 100vh;
+  overflow: auto;
+  scroll-snap-type: y mandatory;
 }
 
 .intro-container {
+  scroll-snap-align: start;
   height: 100vh;
   text-align: center;
 
@@ -69,7 +71,6 @@ body {
 }
 
 .takemetothetop {
-
   position: fixed;
   bottom: 20px;
   right: 30px;
@@ -84,39 +85,61 @@ body {
   font-size: 18px;
 }
 
+.sticky-navbar {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 110px;
+  z-index: 99;
+  background-color: #ffffff;
+  cursor: pointer; /* Add a mouse pointer on hover */
+  font-size: 18px;
 
 
-@media screen and (max-width: 580px) {
-  .avatar-container{
-    position: sticky;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.navbar-avatar-container {
+  height: 110px;
+  width: 110px;
+  background-color: var(--accent);
+}
+
+.nav-avatar {
+  height: 110px;
+  width: 110px;
+  border-radius: 55px;
 }
 
 
-
-
-
-
 .skills-container {
+  scroll-snap-align: start;
   height: 100vh;
   background-color: var(--accent);
 }
 
 .projects-container {
+  scroll-snap-align: start;
   height: 100vh;
   background-color: red;
 }
 
 .posts-container {
+  scroll-snap-align: start;
   height: 100vh;
 }
 
 .gallery-container {
+  scroll-snap-align: start;
   height: 100vh;
   background-color: green;
 }
 
 .footer-container {
+  scroll-snap-align: start;
   height: 100vh;
   background-color: #161616;
 }

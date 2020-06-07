@@ -7,46 +7,66 @@ import Posts from './Posts';
 import Gallery from './Gallery';
 import Footer from './Footer';
 
-import { motion } from "framer-motion"
-import { animateScroll as scroll } from 'react-scroll';
-
+import TopButton from './subcomponents/TopButton';
+import CollapsableNavBar from './subcomponents/CollapsableNavBar';
 
 export default class Main extends React.Component {
+
+  container = React.createRef()
 
   state = {
     showBackToTop: false
   }
 
-  handleToTop = (decide) => {
-    this.setState({ showBackToTop: decide })
+
+  handleScroll = (e) => {
+    let scrollPosition = e.target.scrollTop
+    this.handleToTop(scrollPosition)
   }
 
-  showBackToTop = () => {
+  handleToTop = (scrollPosition) => {
+    if(scrollPosition > 400){
+      this.setState({ showBackToTop: true })
+    }else{
+      this.setState({ showBackToTop: false })
+    }
+  }
+
+  backToTop = () => {
     return this.state.showBackToTop
-      ? <motion.img
-          animate={{
-            scale: 0.5,
-            rotate: 180
-          }}
-          transition={{ duration: 0.5 }}
-          whileHover={{ scale: 0.6 }}
-          onClick={() => scroll.scrollToTop({ duration: 300 })}
-            className={'takemetothetop'}
-              src={'/expand-arrow-100.png'}
-                draggable={'false'} alt={''} />
+      ? <TopButton toTheTop={this.toTheTop} />
         : null
+  }
+
+  collapsableNavBar = () => {
+    return this.state.showBackToTop
+      ? <CollapsableNavBar toTheTop={this.toTheTop} />
+        : null
+  }
+
+  toTheTop = () => {
+    console.log('clicked')
+    this.container.current.scrollTo({top: 0, behavior: 'smooth' });
+  }
+
+  toSkills = () => {
+    this.container.current.scrollTo({
+      top: this.container.current.offsetHeight,
+      behavior: 'smooth'
+    });
   }
 
   render(){
     return (
-      <div ref={this.container} className={'main-container'}>
-        <Intro handleToTop={this.handleToTop} />
-        { this.showBackToTop() }
+      <div ref={this.container} onScroll={this.handleScroll} className={'main-container'}>
+        <Intro toSkills={this.toSkills} />
+        { this.collapsableNavBar() }
         <Skills />
         <Projects />
         <Posts />
         <Gallery />
         <Footer />
+        { this.backToTop() }
       </div>
     );
   }
