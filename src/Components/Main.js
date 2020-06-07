@@ -15,32 +15,36 @@ export default class Main extends React.Component {
   container = React.createRef()
 
   state = {
-    showBackToTop: false
+    showBackToTop: false,
+    position: 0
   }
 
 
   handleScroll = (e) => {
-    let scrollPosition = e.target.scrollTop
-    this.handleToTop(scrollPosition)
+    let position = e.target.scrollTop / e.target.offsetHeight
+    this.handleToTop(position)
   }
 
-  handleToTop = (scrollPosition) => {
-    if(scrollPosition > 400){
-      this.setState({ showBackToTop: true })
+  handleToTop = (position) => {
+    if(position > 0.7){
+      this.setState({ showBackToTop: true, position: parseInt(position) })
     }else{
-      this.setState({ showBackToTop: false })
+      this.setState({ showBackToTop: false, position: parseInt(position) })
     }
   }
 
-  backToTop = () => {
-    return this.state.showBackToTop
-      ? <TopButton toTheTop={this.toTheTop} />
-        : null
+  navControlsJSX = () => {
+    return (
+      <>
+        <CollapsableNavBar toTheTop={this.toTheTop} />
+        <TopButton toTheTop={this.toTheTop} />
+     </>
+    )
   }
 
-  collapsableNavBar = () => {
+  navControls = () => {
     return this.state.showBackToTop
-      ? <CollapsableNavBar toTheTop={this.toTheTop} />
+      ? this.navControlsJSX()
         : null
   }
 
@@ -60,13 +64,12 @@ export default class Main extends React.Component {
     return (
       <div ref={this.container} onScroll={this.handleScroll} className={'main-container'}>
         <Intro toSkills={this.toSkills} />
-        { this.collapsableNavBar() }
+        { this.navControls() }
         <Skills />
         <Projects />
         <Posts />
         <Gallery />
         <Footer />
-        { this.backToTop() }
       </div>
     );
   }

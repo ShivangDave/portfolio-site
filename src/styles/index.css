@@ -72,8 +72,8 @@ html, body {
 
 .takemetothetop {
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 10px;
+  right: 10px;
   z-index: 99;
   border: none;
   outline: none;
@@ -124,22 +124,23 @@ html, body {
 .projects-container {
   scroll-snap-align: start;
   height: 100vh;
-  background-color: red;
+  background-color: white;
 }
 
 .posts-container {
   scroll-snap-align: start;
   height: 100vh;
+  background-color: var(--accent)
 }
 
 .gallery-container {
   scroll-snap-align: start;
   height: 100vh;
-  background-color: green;
+  background-color: white;
 }
 
 .footer-container {
   scroll-snap-align: start;
-  height: 100vh;
-  background-color: #161616;
+  height: 30vh;
+  background-color: var(--accent);
 }
