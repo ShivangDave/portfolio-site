@@ -21,7 +21,7 @@ export default () => {
     <div className={'social-bar-container'}>
       {
         socialLinks.map((item,index) => {
-          return <a href={item} target='_blank' rel="noopener noreferrer">
+          return <a key={index} href={item} target='_blank' rel="noopener noreferrer">
             <motion.img
               whileHover={{ scale: 1.2 }}
               src={imgs[index]}
