@@ -17,7 +17,7 @@ export default (props) => {
     >
       <img
         onClick={props.toSkills}
-        src={'/expand-arrow-100.png'}
+        src={'/img/expand-arrow-100.png'}
         draggable={'false'} alt={''}
       />
     </motion.span>

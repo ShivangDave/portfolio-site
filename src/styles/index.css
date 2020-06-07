@@ -81,7 +81,7 @@ html, body {
   color: var(--accent); /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
+  border-radius: 50%; /* Rounded corners */
   font-size: 18px;
 }
 
@@ -143,4 +143,28 @@ html, body {
   scroll-snap-align: start;
   height: 30vh;
   background-color: var(--accent);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+  font-family: 'Raleway Light';
+}
+
+.social-bar-container{
+  height: 70px;
+  color: white;
+}
+
+.social-bar-container img {
+  height: 50px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.footer-text {
+
 }
