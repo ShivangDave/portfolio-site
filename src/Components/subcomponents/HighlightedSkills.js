@@ -25,7 +25,7 @@ export default (props) => {
                   trailColor: '#FFFFFF'
                 })}
               >
-                <text>{skill}</text>
+                <span>{skill}</span>
               </CircularProgressbarWithChildren>
             </div>
           )
