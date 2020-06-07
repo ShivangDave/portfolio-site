@@ -11,7 +11,7 @@ export default () => {
        opacity: 0
      }}
      animate={{
-      fontSize: 70,
+      fontSize: 50,
       color: 'rgba(253, 177, 177, 1)',
       scale: 1,
       opacity: 1
