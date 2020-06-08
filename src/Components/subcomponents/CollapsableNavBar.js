@@ -2,24 +2,28 @@ import React from 'react';
 
 import { motion } from 'framer-motion';
 
-import Avatar from './Avatar';
-
 export default (props) => {
+
+  const sectionTitle = {
+    1: 'Skills',
+    2: 'Projects',
+    3: 'Blogs',
+    4: 'Gallery',
+    5: 'Thanks for visiting :)'
+  }
+
   return (
     <motion.div
       className={'sticky-navbar'}
       onClick={props.toTheTop}
     >
-      <motion.div animate={{
-          scale: [1, 0.5],
-          rotate: [0, 0, 270, 270, 0, 135, 0],
-          borderRadius: ["20%", "20%", "50%", "50%", "20%", "50%"],
-        }}
-        transition={{ duration: 1 }}
-        className={'navbar-avatar-container'}
+      <motion.span
+        initial={{ x: "200vh" }}
+        animate={{ x: 0 }}
+        transition={{ duration: 0.6}}
       >
-        <Avatar avatarClass={'nav-avatar'} />
-      </motion.div>
+        { sectionTitle[props.position] }
+      </motion.span>
     </motion.div>
   )
 }

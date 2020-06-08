@@ -22,21 +22,23 @@ export default class Main extends React.Component {
 
   handleScroll = (e) => {
     let position = e.target.scrollTop / e.target.offsetHeight
-    this.handleToTop(position)
+    let calculate = position > 3.7 ? Math.round(position) + 1 : Math.round(position)
+    this.handleToTop(calculate)
   }
 
   handleToTop = (position) => {
     if(position > 0.7){
-      this.setState({ showBackToTop: true, position: parseInt(position) })
-    }else{
-      this.setState({ showBackToTop: false, position: parseInt(position) })
+      this.setState({ showBackToTop: true, position: position })
+    }
+    else{
+      this.setState({ showBackToTop: false, position: position })
     }
   }
 
   navControlsJSX = () => {
     return (
       <>
-        <CollapsableNavBar toTheTop={this.toTheTop} />
+        <CollapsableNavBar position={this.state.position} toTheTop={this.toTheTop} />
         <TopButton toTheTop={this.toTheTop} />
      </>
     )
