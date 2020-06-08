@@ -10,6 +10,7 @@ export default () => {
         rotate: [0, 0, 270, 270, 0, 135, 0],
         borderRadius: ["20%", "20%", "50%", "50%", "20%", "50%", "55%"],
       }}
+      layoutTransition
       transition={{ duration: 1 }}
       className={'avatar-container'}
     >
