@@ -13,17 +13,18 @@ export default (props) => {
   }
 
   return (
-    <motion.div
-      className={'sticky-navbar'}
-      onClick={props.toTheTop}
-    >
-      <motion.span
-        initial={{ x: "200vh" }}
-        animate={{ x: 0 }}
-        transition={{ duration: 0.6}}
+      <motion.div
+        className={'sticky-navbar'}
+        onClick={props.toTheTop}
       >
-        { sectionTitle[props.position] }
-      </motion.span>
-    </motion.div>
+        <motion.span
+          initial={{ x: "200vh" }}
+          animate={{ x: 0 }}
+          exit={{ x: "-200vh" }}
+          transition={{ duration: 0.3 }}
+        >
+          { sectionTitle[props.position] }
+        </motion.span>
+      </motion.div>
   )
 }

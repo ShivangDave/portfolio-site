@@ -60,7 +60,6 @@ export default () => {
     'Educator'
   ]
 
-
   return (
     <div id={'skills'} className={'skills-container'}>
         <HighlightedSkills arr={highlightedSkills} />

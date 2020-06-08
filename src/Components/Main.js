@@ -10,48 +10,57 @@ import Footer from './Footer';
 import TopButton from './subcomponents/TopButton';
 import CollapsableNavBar from './subcomponents/CollapsableNavBar';
 
+
 export default class Main extends React.Component {
 
   container = React.createRef()
 
   state = {
-    showBackToTop: false,
     position: 0
   }
 
 
-  handleScroll = (e) => {
-    let position = e.target.scrollTop / e.target.offsetHeight
+  handleScroll = () => {
+
+    let position = this.container.current.scrollTop / this.container.current.offsetHeight
     let calculate = position > 3.7 ? Math.round(position) + 1 : Math.round(position)
+
+    console.dir(this.container.current)
+
+    console.log(`ref position : ${position}`)
+    console.log(`ref calculate : ${calculate}`)
+
+
     this.handleToTop(calculate)
   }
 
   handleToTop = (position) => {
     if(position > 0.7){
-      this.setState({ showBackToTop: true, position: position })
+      this.setState({ position: position })
     }
     else{
-      this.setState({ showBackToTop: false, position: position })
+      this.setState({ position: position })
     }
   }
+
+
 
   navControlsJSX = () => {
     return (
       <>
-        <CollapsableNavBar position={this.state.position} toTheTop={this.toTheTop} />
+        <CollapsableNavBar isVisible={this.state.isVisible} position={this.state.position} toTheTop={this.toTheTop} />
         <TopButton toTheTop={this.toTheTop} />
-     </>
+      </>
     )
   }
 
   navControls = () => {
-    return this.state.showBackToTop
+    return this.state.position > 0
       ? this.navControlsJSX()
         : null
   }
 
   toTheTop = () => {
-    console.log('clicked')
     this.container.current.scrollTo({top: 0, behavior: 'smooth' });
   }
 
