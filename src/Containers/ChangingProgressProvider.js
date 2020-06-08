@@ -4,20 +4,15 @@ import { CircularProgressbarWithChildren, buildStyles } from 'react-circular-pro
 import 'react-circular-progressbar/dist/styles.css';
 
 class ChangingProgressProvider extends React.Component {
-  static defaultProps = {
-    interval: 1500
-  };
 
   state = {
     valuesIndex: 0
   };
 
   componentDidMount() {
-    setTimeout(() => {
-      this.setState({
-        valuesIndex: (this.state.valuesIndex + 1) % this.props.values.length
-      });
-    }, this.props.interval);
+    this.setState({
+      valuesIndex: (this.state.valuesIndex + 1) % this.props.values.length
+    });
   }
 
   render() {

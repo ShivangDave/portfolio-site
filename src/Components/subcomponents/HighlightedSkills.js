@@ -5,7 +5,6 @@ import { motion, useAnimation } from 'framer-motion';
 
 import ChangingProgressProvider from '../../Containers/ChangingProgressProvider'
 
-import _ from 'lodash'
 
 export default (props) => {
 
@@ -14,28 +13,31 @@ export default (props) => {
 
   const position = props.position
   const control = useAnimation()
+
   const [ref,inView] = useInView({ threshold: 0.1 });
 
   const [visible,setVisible] = useState(false)
+  const [count,setCount] = useState(false)
 
   useEffect(() => {
-    // const timer = setTimeout(() => {
-    //   setCount('Timeout called!');
-    // }, 500);
-    // return () => clearTimeout(timer);
+    const timer = setTimeout(() => {
+      setCount('Timeout called!');
+      if (position === 1) {
+        setVisible(true)
+        control.start("visible")
+      }else{
+        setVisible(false)
+        control.start("hidden")
+      }
+    }, 500);
+
     if(inView){
       console.log('skills shown')
     }else{
       console.log('skills hidden')
     }
 
-    if (position === 1) {
-      setVisible(true)
-      control.start("visible")
-    }else{
-      setVisible(false)
-      control.start("hidden")
-    }
+    return () => clearTimeout(timer);
   }, [control, position, visible, inView]);
 
   const renderAnimation = (skill,index) => {

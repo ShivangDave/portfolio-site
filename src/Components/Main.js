@@ -14,7 +14,9 @@ import CollapsableNavBar from './subcomponents/CollapsableNavBar';
 export default () => {
 
   const container = React.createRef()
+
   const [position,setPosition] = useState(0)
+  const [location,setLocation] = useState('')
 
   const handleScroll = () => {
     let position = container.current.scrollTop / container.current.offsetHeight
