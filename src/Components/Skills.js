@@ -3,7 +3,7 @@ import React from 'react';
 import HighlightedSkills from './subcomponents/HighlightedSkills';
 import ResumeBtn from './subcomponents/ResumeBtn';
 
-export default () => {
+export default (props) => {
 
   const language = [
     'Ruby',
@@ -62,9 +62,9 @@ export default () => {
 
   return (
     <div id={'skills'} className={'skills-container'}>
-        <HighlightedSkills arr={highlightedSkills} />
-        <HighlightedSkills arr={language} val={percentage} />
-        <ResumeBtn />
+        <HighlightedSkills arr={highlightedSkills} position={props.position}/>
+        <HighlightedSkills arr={language} val={percentage} position={props.position} />
+        <ResumeBtn position={props.position} />
     </div>
   )
 }

@@ -19,17 +19,15 @@
 html, body {
   margin: 0px;
   overflow: auto !important;
+  scroll-behavior: smooth;
 }
 
 .main-container {
   height: 100vh;
   overflow-x: hidden;
-  overflow-y: scroll;
-  scroll-snap-type: y proximity;
 }
 
 .intro-container {
-  scroll-snap-align: start;
   height: 100vh;
   text-align: center;
 
@@ -123,7 +121,6 @@ html, body {
 
 
 .skills-container {
-  scroll-snap-align: start;
   padding-top: 250px;
   padding-bottom: 100px;
   background-color: var(--accent);
@@ -226,7 +223,6 @@ html, body {
 }
 
 .projects-container {
-  scroll-snap-align: start;
   height: 100vh;
   background-color: white;
   color: var(--accent);
@@ -240,8 +236,6 @@ html, body {
 }
 
 .posts-container {
-  scroll-snap-align: start;
-
   padding: 150px;
   background-color: var(--accent);
 
@@ -283,7 +277,6 @@ html, body {
 }
 
 .gallery-container {
-  scroll-snap-align: start;
   height: 100vh;
   background-color: white;
   color: var(--accent);
@@ -297,7 +290,6 @@ html, body {
 }
 
 .footer-container {
-  scroll-snap-align: start;
   height: 30vh;
   background-color: var(--accent);
 

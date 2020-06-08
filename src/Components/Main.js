@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Intro from './Intro';
 import Skills from './Skills';
@@ -11,77 +11,56 @@ import TopButton from './subcomponents/TopButton';
 import CollapsableNavBar from './subcomponents/CollapsableNavBar';
 
 
-export default class Main extends React.Component {
+export default () => {
 
-  container = React.createRef()
+  const container = React.createRef()
+  const [position,setPosition] = useState(0)
 
-  state = {
-    position: 0
-  }
-
-
-  handleScroll = () => {
-
-    let position = this.container.current.scrollTop / this.container.current.offsetHeight
+  const handleScroll = () => {
+    let position = container.current.scrollTop / container.current.offsetHeight
     let calculate = position > 3.7 ? Math.round(position) + 1 : Math.round(position)
-
-    console.dir(this.container.current)
-
-    console.log(`ref position : ${position}`)
-    console.log(`ref calculate : ${calculate}`)
-
-
-    this.handleToTop(calculate)
+    handleToTop(calculate)
   }
 
-  handleToTop = (position) => {
-    if(position > 0.7){
-      this.setState({ position: position })
-    }
-    else{
-      this.setState({ position: position })
-    }
+  const handleToTop = (position) => {
+    setPosition(position)
   }
 
-
-
-  navControlsJSX = () => {
+  const navControlsJSX = () => {
     return (
       <>
-        <CollapsableNavBar isVisible={this.state.isVisible} position={this.state.position} toTheTop={this.toTheTop} />
-        <TopButton toTheTop={this.toTheTop} />
+        <CollapsableNavBar position={position} toTheTop={toTheTop} />
+        <TopButton toTheTop={toTheTop} />
       </>
     )
   }
 
-  navControls = () => {
-    return this.state.position > 0
-      ? this.navControlsJSX()
+  const navControls = () => {
+    return position > 0
+      ? navControlsJSX()
         : null
   }
 
-  toTheTop = () => {
-    this.container.current.scrollTo({top: 0, behavior: 'smooth' });
+  const toTheTop = () => {
+    container.current.scrollTo({top: 0, behavior: 'smooth' });
   }
 
-  toSkills = () => {
-    this.container.current.scrollTo({
-      top: this.container.current.offsetHeight,
+  const toSkills = () => {
+    container.current.scrollTo({
+      top: container.current.offsetHeight,
       behavior: 'smooth'
     });
   }
 
-  render(){
-    return (
-      <div ref={this.container} onScroll={this.handleScroll} className={'main-container'}>
-        <Intro toSkills={this.toSkills} />
-        { this.navControls() }
-        <Skills />
-        <Projects />
-        <Posts />
-        <Gallery />
-        <Footer />
-      </div>
-    );
-  }
+  return (
+    <div ref={container} onScroll={handleScroll} className={'main-container'}>
+      <Intro position={position} toSkills={toSkills} />
+      { navControls() }
+      <Skills position={position} />
+      <Projects />
+      <Posts />
+      <Gallery />
+      <Footer />
+    </div>
+  );
 }

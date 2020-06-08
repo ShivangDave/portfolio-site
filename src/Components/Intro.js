@@ -4,15 +4,13 @@ import AvatarContainer from './subcomponents/AvatarContainer';
 import IntroText from './subcomponents/IntroText';
 import ScrollDownBtn from './subcomponents/ScrollDownBtn';
 
-export default class Intro extends React.Component {
+export default (props) => {
 
-  render(){
-    return (
-      <div className={'intro-container'}>
-        <AvatarContainer />
-        <IntroText />
-        <ScrollDownBtn toSkills={this.props.toSkills} />
-      </div>
-    )
-  }
+  return (
+    <div className={'intro-container'}>
+      <AvatarContainer position={props.position} />
+      <IntroText />
+      <ScrollDownBtn toSkills={props.toSkills} />
+    </div>
+  )
 }
