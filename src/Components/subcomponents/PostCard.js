@@ -18,7 +18,7 @@ export default (props) => {
   const cardContainerVariant = {
     visible: {
       scale: [0,0.5,1],
-      transition: { duration: 1 }
+      transition: { duration: 0.5 }
     },
     hidden: {
       scale: 0

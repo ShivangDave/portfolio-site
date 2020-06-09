@@ -1,0 +1,96 @@
+{
+  "projects": [
+    {
+      "title": "E2EE Photoapp API",
+      "img": "",
+      "desc": {
+        "name": "E2EE Photo Sharing App",
+        "status": "WIP",
+        "url": "https://github.com/ShivangDave/photoapp-api",
+        "tags": [
+          "Ruby on Rails", "REST", "Travis CI", "Heroku",
+          "RSpec", "Docker", "CI", "CD"
+        ]
+      }
+    },
+    {
+      "title": "E2EE Photoapp",
+      "img": "",
+      "desc": {
+        "name": "E2EE Photo Sharing App",
+        "status": "WIP",
+        "url":"https://github.com/ShivangDave/photoapp"
+      },
+      "tags": [
+        "React", "GraphQL", "Heroku", "Docker", "Travis CI",
+        "Jest", "Mocha", "CI", "CD"
+      ]
+    },
+    {
+      "title": "Blog",
+      "img": "https://media-exp1.licdn.com/dms/image/C5622AQFrxX7EiRuN5w/feedshare-shrink_800/0?e=1594857600&v=beta&t=fqPMlkg2VqkOUB6bWCZ3CBgJEGEmB-2Jy6cR6qswTkI",
+      "desc": {
+        "name": "Personal Blog / Portfolio",
+        "status": "Production",
+        "url":"https://github.com/ShivangDave/blog-web-app"
+      },
+      "tags": [
+        "React", "DigitalOcean", "CI", "CD",
+        "Ruby on Rails", "REST", "Semantic UI",
+        "Nginx", "GitHub Webhooks", "SSL", "Google Cloud"
+      ]
+    },
+    {
+      "title": "Blog Mobile App",
+      "img": "https://github.com/ShivangDave/Blog-Mobile-App/raw/master/src/1.PNG",
+      "desc": {
+        "name": "Personal Blog / Portfolio Mobile App",
+        "status": "Outdated",
+        "url":"https://github.com/ShivangDave/blog-mobile-app"
+      },
+      "tags": [
+        "React Native", "JWT Auth",
+        "iOS", "Android", "Ruby on Rails",
+        "REST"
+      ]
+    },
+    {
+      "title": "Automatic Backup WiFi Camera",
+      "img": "https://github.com/ShivangDave/Automatic-Backup-WiFi-Camera/raw/master/Screenshots/9.PNG",
+      "desc": {
+        "name": "Automatic Backup WiFi Camera iOS App",
+        "status": "Complete",
+        "url":"https://github.com/ShivangDave/Automatic-Backup-WiFi-Camera"
+      },
+      "tags": [
+        "iOS", "NodeJS", "ExpressJS",
+        "APNS", "Swift", "IoT", "Raspberry Pi"
+      ]
+    },
+    {
+      "title": "Animated Scroll View",
+      "img": "https://github.com/ShivangDave/AnimatedScrollView/raw/master/AnimatedScrollView.gif",
+      "desc": {
+        "name": "UIScrollView that smooth scrolls on its own. Pretty Animation!",
+        "status": "Outdated",
+        "url":"https://github.com/ShivangDave/AnimatedScrollView"
+      },
+      "tags": [
+        "iOS", "Swift", "UIScrollView"
+      ]
+    },
+    {
+      "title": "Face Detection based on fixed point calculations",
+      "img": "https://github.com/ShivangDave/Face-detection-based-on-fixed-point-calculations/blob/master/outputs/1.png?raw=true",
+      "desc": {
+        "name": "Reworked Viola Jones Algorithm",
+        "status": "Complete",
+        "url":"https://github.com/ShivangDave/Face-detection-based-on-fixed-point-calculations"
+      },
+      "tags": [
+        "Face Detection", "Machine Learning",
+        "Fixed Point Calculations", "Python"
+      ]
+    }
+  ]
+}
