@@ -10,6 +10,7 @@ import Footer from './Footer';
 import TopButton from './subcomponents/TopButton';
 import CollapsableNavBar from './subcomponents/CollapsableNavBar';
 
+import { isMobileOnly } from 'react-device-detect';
 
 export default () => {
 
@@ -18,6 +19,8 @@ export default () => {
   const [location,setLocation] = useState(0)
 
   useEffect(() => {
+    console.log(location)
+    console.log(isMobileOnly)
   },[location])
 
   const navControlsJSX = () => {

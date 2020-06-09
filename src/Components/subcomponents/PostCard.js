@@ -12,8 +12,6 @@ export default (props) => {
   useEffect(() => {
     if(location === 3) {
       control.start("visible")
-    }else{
-      control.start("hidden")
     }
   }, [control,location]);
 

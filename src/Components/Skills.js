@@ -62,7 +62,7 @@ export default (props) => {
     'Educator'
   ]
 
-  const threshold = isMobileOnly ? { threshold: 0.2 } : { threshold: 0.5 }
+  const threshold = isMobileOnly ? { threshold: 0.2 } : { threshold: 1 }
   const [ref,inView] = useInView(threshold);
 
   if(inView){
