@@ -62,13 +62,12 @@ export default (props) => {
     'Educator'
   ]
 
-  const threshold = isMobileOnly ? { threshold: 0.2 } : { threshold: 0.6 }
+  const threshold = isMobileOnly ? { threshold: 0.2 } : { threshold: 0.5 }
   const [ref,inView] = useInView(threshold);
 
   if(inView){
     props.setLocation(1)
   }
-
 
   return (
     <div ref={ref} id={'skills'} className={'skills-container'}>

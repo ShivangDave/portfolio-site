@@ -236,7 +236,8 @@ html, body {
 }
 
 .posts-container {
-  padding: 150px;
+  padding-top: 200px;
+  padding-bottom: 100px;
   background-color: var(--accent);
 
   display: flex;
@@ -247,29 +248,40 @@ html, body {
 
 .post-card{
   display: flex;
-  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 
   text-decoration: none;
   color: white;
   font-family: 'Raleway Light';
-  font-size: 40px;
+  font-size: 30px;
+
+  border: 1px solid white;
+  padding: 15px;
+  margin: 10px;
+  /* background-color: grey; */
 }
 
 .post-card img {
   height: 200px;
   width: 200px;
-  margin: 10px;
+  margin: 5px;
 }
 
-.post-card p, .post-card button {
-  margin: 5px;
+.post-card p, .post-card a {
+  padding: 5px;
+}
+.post-card p {
+  font-family: 'Quicksand';
 }
 
 .post-card a {
   border: none;
   color: #FFFFFF;
   font-size: 20px;
-  font-family: 'Quicksand';
+  font-family: 'Raleway Light';
   background-color: var(--accent);
   cursor: pointer;
   text-decoration-color: none;
@@ -277,11 +289,10 @@ html, body {
 }
 
 .gallery-container {
-  height: 100vh;
   background-color: white;
   color: var(--accent);
   font-family: 'Raleway Light';
-  font-size: 40px;
+  font-size: 20px;
 
   display: flex;
   flex-direction: column;
