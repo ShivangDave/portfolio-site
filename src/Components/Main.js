@@ -41,8 +41,7 @@ export default () => {
 
   const toSkills = () => {
     container.current.scrollTo({
-      top: container.current.offsetHeight,
-      behavior: 'smooth'
+      top: container.current.offsetHeight
     });
   }
 
