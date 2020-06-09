@@ -1,11 +1,11 @@
 import React from 'react';
 
 import { motion } from 'framer-motion';
-import { isMobile } from 'react-device-detect';
+import { isMobileOnly } from 'react-device-detect';
 
 export default (props) => {
 
-  const arrowPosition = isMobile ? 50 : 150
+  const arrowPosition = isMobileOnly ? 50 : 150
 
   return (
     <motion.span className={'clickme'} animate={{

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useInView } from 'react-intersection-observer'
+import { isMobileOnly } from 'react-device-detect';
 
 import HighlightedSkills from './subcomponents/HighlightedSkills';
 import ResumeBtn from './subcomponents/ResumeBtn';
@@ -60,10 +62,18 @@ export default (props) => {
     'Educator'
   ]
 
+  const threshold = isMobileOnly ? { threshold: 0.2 } : { threshold: 0.6 }
+  const [ref,inView] = useInView(threshold);
+
+  if(inView){
+    props.setLocation(1)
+  }
+
+
   return (
-    <div id={'skills'} className={'skills-container'}>
-        <HighlightedSkills arr={highlightedSkills} position={props.position}/>
-        <HighlightedSkills arr={language} val={percentage} position={props.position} />
+    <div ref={ref} id={'skills'} className={'skills-container'}>
+        <HighlightedSkills arr={highlightedSkills} location={props.location}/>
+        <HighlightedSkills arr={language} val={percentage} location={props.location} />
         <ResumeBtn position={props.position} />
     </div>
   )

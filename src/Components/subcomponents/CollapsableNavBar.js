@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
 import { useInView } from 'react-intersection-observer'
 import { motion, useAnimation } from 'framer-motion';
@@ -13,24 +13,16 @@ export default (props) => {
     5: 'Thanks for visiting :)'
   }
 
-  const position = props.position
+  const location = props.location
+
   const control = useAnimation()
+
   const [ref] = useInView({ threshold: 0.1 });
-
-  useEffect(() => {
-
-    if (position % 2 === 0) {
-      control.start("visible")
-    }else if(position % 2 === 1){
-      control.start("next")
-    }
-  }, [control, position]);
 
   return (
       <motion.div
         className={'sticky-navbar'}
         onClick={props.toTheTop}
-        animate
       >
         <motion.div ref={ref}
         variants={{
@@ -40,7 +32,7 @@ export default (props) => {
         }}
         intial={"hidden"}
         animate={control}>
-          { sectionTitle[props.position] }
+          { sectionTitle[location] }
         </motion.div>
       </motion.div>
   )

@@ -7,17 +7,17 @@ import Avatar from './Avatar';
 
 export default (props) => {
 
-  const position = props.position
+  const location = props.location
   const control = useAnimation()
-  const [ref] = useInView({ threshold: 0.1 });
+  const [ref] = useInView({ threshold: 0.6 });
 
   useEffect(() => {
-    if (position === 0) {
+    if (location === 0) {
       control.start("visible")
     }else{
       control.start("hidden")
     }
-  }, [control, position]);
+  }, [control,location]);
 
   return (
     <motion.div

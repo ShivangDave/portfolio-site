@@ -1,11 +1,18 @@
 import React from 'react';
 import SocialBar from './subcomponents/SocialBar';
 import { motion } from 'framer-motion';
+import { useInView } from 'react-intersection-observer'
 
+export default (props) => {
 
-export default () => {
+  const [ref,inView] = useInView({ threshold: 0.3 });
+
+  if(inView){
+    props.setLocation(5)
+  }
+
   return (
-    <div className={'footer-container'}>
+    <div ref={ref} className={'footer-container'}>
       <motion.h3 className={'footer-text'}>
         {'//'} Made with React + Framer Motion <span role="img" aria-label="heart">♥️</span>
         {<br />}

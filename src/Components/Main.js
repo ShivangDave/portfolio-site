@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Intro from './Intro';
 import Skills from './Skills';
@@ -15,30 +15,22 @@ export default () => {
 
   const container = React.createRef()
 
-  const [position,setPosition] = useState(0)
-  const [location,setLocation] = useState('')
+  const [location,setLocation] = useState(0)
 
-  const handleScroll = () => {
-    let position = container.current.scrollTop / container.current.offsetHeight
-    let calculate = position > 3.7 ? Math.round(position) + 1 : Math.round(position)
-    handleToTop(calculate)
-  }
-
-  const handleToTop = (position) => {
-    setPosition(position)
-  }
+  useEffect(() => {
+  },[location])
 
   const navControlsJSX = () => {
     return (
       <>
-        <CollapsableNavBar position={position} toTheTop={toTheTop} />
+        <CollapsableNavBar location={location} toTheTop={toTheTop} />
         <TopButton toTheTop={toTheTop} />
       </>
     )
   }
 
   const navControls = () => {
-    return position > 0
+    return location > 0
       ? navControlsJSX()
         : null
   }
@@ -55,14 +47,14 @@ export default () => {
   }
 
   return (
-    <div ref={container} onScroll={handleScroll} className={'main-container'}>
-      <Intro position={position} toSkills={toSkills} />
+    <div ref={container} className={'main-container'}>
+      <Intro location={location} setLocation={setLocation} toSkills={toSkills} />
       { navControls() }
-      <Skills position={position} />
-      <Projects />
-      <Posts />
-      <Gallery />
-      <Footer />
+      <Skills location={location} setLocation={setLocation} />
+      <Projects location={location} setLocation={setLocation} />
+      <Posts location={location} setLocation={setLocation} />
+      <Gallery location={location} setLocation={setLocation} />
+      <Footer location={location} setLocation={setLocation} />
     </div>
   );
 }
