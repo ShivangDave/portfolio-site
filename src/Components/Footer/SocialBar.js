@@ -17,16 +17,18 @@ export default () => {
     '/img/twitter.png'
   ]
 
+  const socialImgVariants = {
+    onInteraction: { scale: 1.2 }
+  }
+
   return (
     <div className={'social-bar-container'}>
       {
         socialLinks.map((item,index) => {
           return <a key={index} href={item} target='_blank' rel="noopener noreferrer">
-            <motion.img
-              whileHover={{ scale: 1.2 }}
-              src={imgs[index]}
-              draggable={'false'}
-              alt={''}
+            <motion.img variants={socialImgVariants}
+              whileHover={'onInteraction'}
+              src={imgs[index]} draggable={'false'} alt={''}
             />
           </a>
         })

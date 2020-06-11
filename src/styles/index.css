@@ -18,10 +18,12 @@
 
 html, body {
   margin: 0px;
+  min-height: 100%;
 }
 
 .main-container {
   overflow-x: hidden;
+  height: 100vh;
 }
 
 .intro-container {
@@ -118,7 +120,6 @@ html, body {
 
 
 .skills-container {
-  height: 100vh;
   background-color: var(--accent);
 
   color: white;
@@ -218,8 +219,9 @@ html, body {
   text-decoration-color: none;
 }
 
+
+
 .projects-container {
-  height: 100vh;
   background-color: white;
   color: var(--accent);
   font-family: 'Raleway Light';
@@ -259,7 +261,7 @@ html, body {
 
 
 .posts-container {
-  height: 100vh;
+  min-height: 100%;
   background-color: var(--accent);
 
   display: flex;
@@ -312,8 +314,6 @@ html, body {
 
 .gallery-container {
 
-  height: 100vh;
-
   background-color: white;
   color: var(--accent);
   font-family: 'Raleway Light';
@@ -326,7 +326,6 @@ html, body {
 }
 
 .footer-container {
-  height: 30vh;
   background-color: var(--accent);
 
   display: flex;

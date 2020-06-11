@@ -1,11 +1,10 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 export default (props) => {
 
   const project = props.project
-  const location = props.location
 
   const animateFromLeft = {
     visible: {
@@ -27,34 +26,14 @@ export default (props) => {
     }
   }
 
-  const controlLeft = useAnimation();
-  const controlRight = useAnimation();
-
-  useEffect(() => {
-    if(location === 2) {
-      controlLeft.start("visible")
-      .then(() => {
-        controlRight.start("visible")
-      })
-    }else{
-      controlLeft.start("hidden")
-      .then(() => {
-        controlRight.start("hidden")
-      })
-    }
-  }, [controlLeft, controlRight,location]);
-
   const projectCard = () => {
-
-    const control = props.index % 2 > 0 ? controlLeft : controlRight
     const controlVariant = props.index % 2 > 0 ? animateFromLeft : animateFromRight
-
     return (
       <motion.div
         className={'project-card-container'}
         variants={controlVariant}
-        initial={control}
-        animate={control}
+        initial={'hidden'}
+        animate={'visible'}
       >
         { project.title }
       </motion.div>
