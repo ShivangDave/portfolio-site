@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useInView } from 'react-intersection-observer'
 
-export default ({ setSection }) => {
+export default ({ pictures, setSection }) => {
 
   const [ref,inView] = useInView({ threshold: 1 });
 
@@ -12,8 +12,7 @@ export default ({ setSection }) => {
 
   return (
     <div ref={ref} className={'gallery-container'}>
-      <rssapp-wall id="DRApa2KjfXGDOlOX">
-      </rssapp-wall>
+      { console.log(pictures) }
     </div>
   )
 }

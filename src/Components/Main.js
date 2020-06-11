@@ -11,12 +11,14 @@ import TopButton from './Navigation/TopButton';
 import CollapsableNavBar from './Navigation/CollapsableNavBar';
 
 const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40shivang_dave'
+const imageUrl = 'https://cors-anywhere.herokuapp.com/https://instagram-api-wrapper.herokuapp.com/pictures'
 
 export default () => {
 
   const container = React.createRef()
 
   const [posts,setPosts] = useState([])
+  const [pictures,setPictures] = useState([])
   const [currentSection,setSection] = useState(0)
 
   useEffect(() => {
@@ -25,6 +27,13 @@ export default () => {
     .then(feed => {
       console.log('fetching')
       setPosts(feed.items)
+    })
+
+    fetch(imageUrl)
+    .then(res => res.json())
+    .then(feed => {
+      console.log('fetching images')
+      setPictures(feed)
     })
   },[])
 
@@ -56,9 +65,8 @@ export default () => {
       <Skills setSection={setSection} />
       <Projects setSection={setSection} />
       <Posts posts={posts} setSection={setSection} />
+      <Gallery pictures={pictures} setSection={setSection} />
       <Footer />
     </div>
   );
 }
-
-// <Gallery setSection={setSection} />
