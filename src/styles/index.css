@@ -1,0 +1,355 @@
+@font-face {
+  font-family: 'Quicksand';
+  src: url('/Quicksand-Regular.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Raleway Light';
+  src: url('/Raleway-Light.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+:root {
+  --accent: rgba(253, 177, 177, 1);
+}
+
+html, body {
+  margin: 0px;
+}
+
+.main-container {
+  overflow-x: hidden;
+}
+
+.intro-container {
+  height: 100vh;
+  text-align: center;
+
+  color: white;
+  font-family: 'Quicksand';
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro {
+}
+
+.avatar-container {
+  height: 180px;
+  width: 180px;
+  border: 2px transparent;
+  border-radius: 40px;
+  background-color: var(--accent);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.avatar {
+  height: 150px;
+  width: 150px;
+  border-radius: 75px;
+}
+
+.clickme{
+  border: 0px;
+  font-family: 'Quicksand';
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.takemetothetop {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  z-index: 99;
+  border: none;
+  outline: none;
+  background-color: #ffffff;
+  color: var(--accent); /* Text color */
+  cursor: pointer; /* Add a mouse pointer on hover */
+  padding: 15px; /* Some padding */
+  border-radius: 50%; /* Rounded corners */
+  font-size: 18px;
+}
+
+.sticky-navbar {
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  height: 110px;
+  z-index: 99;
+  background-color: #ffffff;
+  cursor: pointer; /* Add a mouse pointer on hover */
+  font-size: 18px;
+
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Raleway Light';
+  font-size: 30px;
+  color: var(--accent);
+}
+
+.navbar-avatar-container {
+  height: 110px;
+  width: 110px;
+  background-color: var(--accent);
+}
+
+.nav-avatar {
+  height: 110px;
+  width: 110px;
+  border-radius: 55px;
+}
+
+
+
+
+.skills-container {
+  height: 100vh;
+  background-color: var(--accent);
+
+  color: white;
+  font-family: 'Raleway Light';
+  font-size: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.loader-container-parent{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.loader-container {
+  border-radius: 50%;
+  background-color: white;
+  margin: 15px;
+
+  padding: 10px;
+
+  font-family: 'Quicksand';
+  font-size: 26px !important;
+  color: var(--accent);
+}
+
+.small-loader-container{
+
+  border-radius: 50%;
+  background-color: white;
+  margin: 15px;
+
+  padding: 2px;
+
+  font-family: 'Quicksand';
+  font-size: 16px !important;
+  color: var(--accent);
+  text-align: center;
+}
+
+.small-loader {
+  border-radius: 50%;
+
+  min-width: 90px;
+  min-height: 90px;
+
+  max-width: 90px;
+  max-height: 90px;
+}
+
+.small-loader text{
+  font-family: 'Quicksand';
+  font-size: 1px !important;
+  height: 200px !important;
+  width: 200px !important;
+}
+
+.loader {
+  border-radius: 50%;
+
+  max-width: 150px;
+  max-height: 150px;
+}
+
+.resume-btn-container{
+
+  display: flex;
+  justify-content: center;
+
+  margin-top: 70px;
+  background-color: white;
+  height: 50px;
+  width: 200px;
+  border-radius: 50px;
+  padding: 5px;
+}
+
+.resume-btn{
+  height: 100%;
+  width: 100%;
+  border-radius: 50px;
+
+  border: 2px solid var(--accent);
+  background-color: white;
+  outline: none;
+
+  color: var(--accent);
+  font-size: 20px;
+  font-family: 'Raleway Light';
+
+  cursor: pointer;
+  text-decoration-color: none;
+}
+
+.projects-container {
+  height: 100vh;
+  background-color: white;
+  color: var(--accent);
+  font-family: 'Raleway Light';
+  font-size: 40px;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.project-card-container{
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  margin: 15px;
+
+  border: 2px solid var(--accent);
+  border-radius: 50%;
+
+  min-height: 200px;
+  min-width: 200px;
+
+  max-height: 200px;
+  max-width: 200px;
+
+  font-family: 'Quicksand';
+  font-size: 0.5em !important;
+  color: var(--accent);
+  text-align: center;
+}
+
+
+.posts-container {
+  height: 100vh;
+  background-color: var(--accent);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.post-card{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+
+  text-decoration: none;
+  color: white;
+  font-family: 'Raleway Light';
+  font-size: 30px;
+
+  border: 4px solid white;
+  padding: 15px;
+  margin: 10px;
+  /* background-color: grey; */
+}
+
+.post-card img {
+  height: 200px;
+  width: 200px;
+  margin: 5px;
+}
+
+.post-card p, .post-card a {
+  padding: 5px;
+}
+.post-card p {
+  font-family: 'Quicksand';
+}
+
+.post-card a {
+  border: none;
+  color: #FFFFFF;
+  font-size: 20px;
+  font-family: 'Raleway Light';
+  background-color: var(--accent);
+  cursor: pointer;
+  text-decoration-color: none;
+  outline: none;
+}
+
+.gallery-container {
+
+  height: 100vh;
+
+  background-color: white;
+  color: var(--accent);
+  font-family: 'Raleway Light';
+  font-size: 20px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-container {
+  height: 30vh;
+  background-color: var(--accent);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+
+  color: white;
+  font-family: 'Raleway Light';
+}
+
+.social-bar-container{
+  height: 70px;
+  color: white;
+}
+
+.social-bar-container img {
+  height: 50px;
+  margin: 5px;
+  padding: 5px;
+}
+
+.footer-text {
+
+}

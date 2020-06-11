@@ -1,11 +1,9 @@
 import React from 'react';
-import '../styles/App.css';
+
+import Main from './Main';
 
 const App = () => {
-  return (
-    <div>
-    </div>
-  );
+  return <Main />
 }
 
 export default App;
