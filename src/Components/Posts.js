@@ -5,7 +5,7 @@ import { isMobileOnly } from 'react-device-detect';
 
 export default (props) => {
 
-  const threshold = isMobileOnly ? { threshold: 0.2 } : { threshold: 0.5 }
+  const threshold = isMobileOnly ? { threshold: 0.2 } : { threshold: 1 }
   const [ref,inView] = useInView(threshold);
 
   const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40shivang_dave'
