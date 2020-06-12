@@ -12,7 +12,25 @@ export default ({ pictures, setSection }) => {
 
   return (
     <div ref={ref} className={'gallery-container'}>
-      { console.log(pictures) }
+      {
+        pictures.map((picture,index) => {
+          const caption = picture.caption
+
+          const pre = caption.length > 100 ? caption.substring(0,100) : caption
+          const post = caption.length > 40 ? '#tech' : ''
+
+          const cardCaption = pre + '... ' + post
+
+          return (
+            <div key={index} className={'gallery-card-container'}>
+              <div className={'gallery-card'}>
+                <img src={picture.url} alt={''} draggable={'false'} />
+              </div>
+              <p>{ cardCaption }</p>
+            </div>
+          )
+        })
+      }
     </div>
   )
 }
