@@ -1,5 +1,17 @@
 import React, { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer'
+import { useInView } from 'react-intersection-observer';
+
+import { motion } from 'framer-motion';
+
+const pictureGridVariants = {
+  visible: {
+    scale: 1
+  },
+  onInteraction: {
+    scale: 1.1,
+    transition: { duration: 0.5 }
+  }
+}
 
 export default ({ pictures, setSection }) => {
 
@@ -22,7 +34,11 @@ export default ({ pictures, setSection }) => {
           const cardCaption = pre + '... ' + post
 
           return (
-            <a key={index} className={'gallery-link'}
+            <motion.a key={index} className={'gallery-link'}
+              variants={pictureGridVariants}
+              animate={'visible'}
+              whileTap={'onInteraction'}
+              whileHover={'onInteraction'}
               href={picture.permalink} alt={'link'} rel="noopener noreferrer" target={'_blank'}>
               <div className={'gallery-card-container'}>
                 <div className={'gallery-card'}>
@@ -30,7 +46,7 @@ export default ({ pictures, setSection }) => {
                 </div>
                 <p>{ cardCaption }</p>
               </div>
-            </a>
+            </motion.a>
           )
         })
       }

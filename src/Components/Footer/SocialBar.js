@@ -4,16 +4,16 @@ import { motion } from 'framer-motion';
 export default () => {
 
   const socialLinks = [
-    "https://instagram.com/dshivang0",
-    "https://linkedin.com/in/dshivang",
     "https://github.com/ShivangDave",
+    "https://linkedin.com/in/dshivang",
+    "https://instagram.com/dshivang0",
     "https://twitter.com/___Shivang___"
   ]
 
   const imgs = [
-    '/img/instagram.png',
-    '/img/linkedin.png',
     '/img/github.png',
+    '/img/linkedin.png',
+    '/img/instagram.png',
     '/img/twitter.png'
   ]
 
