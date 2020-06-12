@@ -23,6 +23,7 @@ export default () => {
 
   return (
     <div className={'social-bar-container'}>
+      <div className={'footer-icons'}>
       {
         socialLinks.map((item,index) => {
           return <a key={index} href={item} target='_blank' rel="noopener noreferrer">
@@ -33,6 +34,8 @@ export default () => {
           </a>
         })
       }
+      </div>
+      mail@shivangdave.com
     </div>
   )
 }
