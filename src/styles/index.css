@@ -48,6 +48,7 @@ html, body {
   border: 2px transparent;
   border-radius: 40px;
   background-color: var(--accent);
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 
   display: flex;
   flex-direction: column;
@@ -63,6 +64,7 @@ html, body {
 
 .clickme{
   border: 0px;
+
   font-family: 'Quicksand';
   cursor: pointer;
   text-decoration: none;
@@ -75,7 +77,10 @@ html, body {
   z-index: 99;
   border: none;
   outline: none;
+
   background-color: #ffffff;
+  box-shadow: -5px -5px rgb(0,0,0,0.3);
+
   color: var(--accent); /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
@@ -129,8 +134,9 @@ html, body {
 .loader-container {
   border-radius: 50%;
   background-color: white;
-  margin: 15px;
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 
+  margin: 15px;
   padding: 10px;
 
   font-family: 'Quicksand';
@@ -142,8 +148,9 @@ html, body {
 
   border-radius: 50%;
   background-color: white;
-  margin: 15px;
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 
+  margin: 15px;
   padding: 2px;
 
   font-family: 'Quicksand';
@@ -186,6 +193,7 @@ html, body {
 
   background-color: white;
   border-radius: 50px;
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 
   margin: 20px;
   padding: 5px;
@@ -234,7 +242,7 @@ html, body {
   align-items: center;
   flex-wrap: wrap;
 
-  margin: 15px;
+  margin: 25px;
 
   border: 2px solid var(--accent);
   border-radius: 50%;
@@ -333,7 +341,7 @@ html, body {
 
   border: 1px solid rgb(0,0,0,0.2);
   border-style: outset;
-  box-shadow: 3px 3px rgb(0,0,0,0.3);
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 }
 
 .gallery-card {
@@ -366,6 +374,7 @@ html, body {
 }
 
 .footer-container {
+  min-height: 30%;
   background-color: var(--accent);
 
   display: flex;
