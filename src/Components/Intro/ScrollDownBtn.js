@@ -1,21 +1,22 @@
 import React from 'react';
-
 import { motion } from 'framer-motion';
-import { isMobileOnly } from 'react-device-detect';
 
 export default (props) => {
 
-  const arrowPosition = isMobileOnly ? 50 : 150
-
   const scrollDownBtnVariants = {
     visible: {
-        scale: 0.5,
-        y: arrowPosition,
-        transition: { duration: 1 }
+        y: [40,100,40,100],
+        transition: {
+          duration: 3,
+          yoyo: Infinity
+        }
     },
     hover: {
-      scale: 0.6,
-      duration: 0.5
+      scale: 1.1,
+      duration: 0.3
+    },
+    exit: {
+      scale: 0
     }
   }
 
