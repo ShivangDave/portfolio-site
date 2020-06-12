@@ -22,12 +22,15 @@ export default ({ pictures, setSection }) => {
           const cardCaption = pre + '... ' + post
 
           return (
-            <div key={index} className={'gallery-card-container'}>
-              <div className={'gallery-card'}>
-                <img src={picture.url} alt={''} draggable={'false'} />
+            <a key={index} className={'gallery-link'}
+              href={picture.permalink} alt={'link'} rel="noopener noreferrer" target={'_blank'}>
+              <div className={'gallery-card-container'}>
+                <div className={'gallery-card'}>
+                  <img src={picture.url} alt={''} draggable={'false'} />
+                </div>
+                <p>{ cardCaption }</p>
               </div>
-              <p>{ cardCaption }</p>
-            </div>
+            </a>
           )
         })
       }

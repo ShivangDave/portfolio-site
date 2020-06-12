@@ -6,37 +6,34 @@ export default (props) => {
 
   const project = props.project
 
-  const animateFromLeft = {
+  const animateProjectCard = {
     visible: {
-      x: 0,
+      scale: 1.1,
       transition: { duration: 0.5 }
     },
     hidden: {
-      x: "-200vh",
-    }
-  }
-
-  const animateFromRight = {
-    visible: {
-      x: 0,
-      transition: { duration: 0.5 }
-    },
-    hidden: {
-      x: "200vh",
+      scale: 1
     }
   }
 
   const projectCard = () => {
-    const controlVariant = props.index % 2 > 0 ? animateFromLeft : animateFromRight
+
     return (
-      <motion.div
-        className={'project-card-container'}
-        variants={controlVariant}
-        initial={'hidden'}
-        animate={'visible'}
-      >
-        { project.title }
-      </motion.div>
+      <a href={project.desc.url}
+        target={'_blank'} className={'gallery-link'} rel="noopener noreferrer">
+        <motion.div
+          variants={animateProjectCard}
+          initial={'hidden'}
+          whileHover={'visible'}
+          whileTap={'visible'}
+          className={'project-card-container'}
+          style={{ backgroundImage: `url(${project.img})` }}
+        >
+          <div className={'project-text'}>
+            <span> { project.title } </span>
+          </div>
+        </motion.div>
+      </a>
     )
   }
 

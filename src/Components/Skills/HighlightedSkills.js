@@ -12,6 +12,7 @@ export default (props) => {
   const loaderVariants = {
     visible: { scale: 1 },
     hidden: { scale: 0 },
+    onInteraction: { scale: 1.1 }
   }
 
   const renderAnimation = (skill,index) => {
@@ -34,6 +35,8 @@ export default (props) => {
     <motion.div variants={loaderVariants}
       intial={'hidden'}
       animate={'visible'}
+      whileHover={'onInteraction'}
+      whileTap={'onInteraction'}
       key={index}
       className={containerClass}>
       {
