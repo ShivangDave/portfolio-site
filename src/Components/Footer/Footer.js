@@ -1,5 +1,5 @@
 import React from 'react';
-import SocialBar from './subcomponents/SocialBar';
+import SocialBar from './SocialBar';
 import { motion } from 'framer-motion';
 
 export default (props) => {

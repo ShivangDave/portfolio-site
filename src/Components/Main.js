@@ -1,41 +1,51 @@
 import React, { useState, useEffect } from 'react';
 
-import Intro from './Intro';
-import Skills from './Skills';
-import Projects from './Projects';
-import Posts from './Posts';
-import Gallery from './Gallery';
-import Footer from './Footer';
+import Intro from './Intro/Intro';
+import Skills from './Skills/Skills';
+import Projects from './Projects/Projects';
+import Posts from './Posts/Posts';
+import Gallery from './Gallery/Gallery';
+import Footer from './Footer/Footer';
 
-import TopButton from './subcomponents/TopButton';
-import CollapsableNavBar from './subcomponents/CollapsableNavBar';
+import TopButton from './Navigation/TopButton';
+import CollapsableNavBar from './Navigation/CollapsableNavBar';
 
-import { isMobileOnly } from 'react-device-detect';
+const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40shivang_dave'
+const imageUrl = 'https://cors-anywhere.herokuapp.com/https://instagram-api-wrapper.herokuapp.com/pictures'
 
 export default () => {
 
   const container = React.createRef()
 
-  const [location,setLocation] = useState(0)
+  const [posts,setPosts] = useState([])
+  const [pictures,setPictures] = useState([])
+  const [currentSection,setSection] = useState(0)
 
   useEffect(() => {
-    console.log(location)
-    console.log(isMobileOnly)
-  },[location])
+    fetch(feedUrl)
+    .then(res => res.json())
+    .then(feed => {
+      console.log('fetching')
+      setPosts(feed.items)
+    })
 
-  const navControlsJSX = () => {
-    return (
-      <>
-        <CollapsableNavBar location={location} toTheTop={toTheTop} />
-        <TopButton toTheTop={toTheTop} />
-      </>
-    )
-  }
+    fetch(imageUrl)
+    .then(res => res.json())
+    .then(feed => {
+      console.log('fetching images')
+      setPictures(feed)
+    })
+  },[])
 
   const navControls = () => {
-    return location > 0
-      ? navControlsJSX()
-        : null
+    return (
+      currentSection > 0 && (
+        <>
+          <CollapsableNavBar currentSection={currentSection} />
+          <TopButton toTheTop={toTheTop} />
+        </>
+      )
+    )
   }
 
   const toTheTop = () => {
@@ -44,19 +54,20 @@ export default () => {
 
   const toSkills = () => {
     container.current.scrollTo({
-      top: container.current.offsetHeight
+      top: container.current.offsetHeight - 100,
+      behavior: 'smooth'
     });
   }
 
   return (
     <div ref={container} className={'main-container'}>
-      <Intro location={location} setLocation={setLocation} toSkills={toSkills} />
       { navControls() }
-      <Skills location={location} setLocation={setLocation} />
-      <Projects location={location} setLocation={setLocation} />
-      <Posts location={location} setLocation={setLocation} />
-      <Gallery location={location} setLocation={setLocation} />
-      <Footer location={location} setLocation={setLocation} />
+      <Intro setSection={setSection} toSkills={toSkills} />
+      <Skills setSection={setSection} />
+      <Projects setSection={setSection} />
+      <Posts posts={posts} setSection={setSection} />
+      <Gallery pictures={pictures} setSection={setSection} />
+      <Footer />
     </div>
   );
 }

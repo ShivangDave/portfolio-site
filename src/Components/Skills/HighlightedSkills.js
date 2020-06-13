@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 
-import { motion, useAnimation } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 import ChangingProgressProvider from '../../Containers/ChangingProgressProvider'
 
@@ -9,23 +9,20 @@ export default (props) => {
   const containerClass = props.val ? 'small-loader-container' : 'loader-container'
   const barClass = props.val ? 'small-loader' : 'loader'
 
-  const location = props.location
-  const control = useAnimation();
-
-  useEffect(() => {
-    if(location === 1) {
-      control.start("visible")
-    }else{
-      control.start("hidden")
-    }
-  }, [control,location]);
+  const loaderVariants = {
+    visible: { scale: 1 },
+    hidden: { scale: 0 },
+    onInteraction: { scale: 1.1 }
+  }
 
   const renderAnimation = (skill,index) => {
+
     const values = props.val ? [0,props.val[index]] : [0,0]
     const smallLoaders = props.val ? true : false
 
     return (
       <ChangingProgressProvider
+        key={index}
         barClass={barClass}
         skill={skill}
         values={values}
@@ -34,24 +31,25 @@ export default (props) => {
     )
   }
 
+  const loaderContainer = (skill,index) => (
+    <motion.div variants={loaderVariants}
+      intial={'hidden'}
+      animate={'visible'}
+      whileHover={'onInteraction'}
+      whileTap={'onInteraction'}
+      key={index}
+      className={containerClass}>
+      {
+        renderAnimation(skill,index)
+      }
+    </motion.div>
+  )
+
   return (
     <div className='loader-container-parent'>
       {
         props.arr.map((skill,index) => {
-          return(
-            <motion.div
-              variants={{
-                visible: { scale: 1 },
-                hidden: { scale: 0 },
-              }}
-              intial={"hidden"}
-              animate={control}
-              key={skill} className={containerClass}>
-              {
-                renderAnimation(skill,index)
-              }
-            </motion.div>
-          )
+          return loaderContainer(skill,index)
         })
       }
     </div>

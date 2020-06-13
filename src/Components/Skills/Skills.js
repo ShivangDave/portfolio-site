@@ -1,11 +1,10 @@
-import React from 'react';
-import { useInView } from 'react-intersection-observer'
-import { isMobileOnly } from 'react-device-detect';
+import React, { useEffect } from 'react';
+import { useInView } from 'react-intersection-observer';
 
-import HighlightedSkills from './subcomponents/HighlightedSkills';
-import ResumeBtn from './subcomponents/ResumeBtn';
+import HighlightedSkills from './HighlightedSkills';
+import ResumeBtn from './ResumeBtn';
 
-export default (props) => {
+export default ({ setSection }) => {
 
   const language = [
     'Ruby',
@@ -62,18 +61,20 @@ export default (props) => {
     'Educator'
   ]
 
-  const threshold = isMobileOnly ? { threshold: 0.2 } : { threshold: 1 }
-  const [ref,inView] = useInView(threshold);
+  const [ref,inView] = useInView({ threshold: 0.6 });
 
-  if(inView){
-    props.setLocation(1)
-  }
+  useEffect(() => {
+    if(inView){
+      console.log('this is skills')
+      setSection(1)
+    }
+  },[inView,setSection])
 
   return (
     <div ref={ref} id={'skills'} className={'skills-container'}>
-        <HighlightedSkills arr={highlightedSkills} location={props.location}/>
-        <HighlightedSkills arr={language} val={percentage} location={props.location} />
-        <ResumeBtn position={props.position} />
+        <HighlightedSkills key={'large'} arr={highlightedSkills} />
+        <HighlightedSkills key={'small'} arr={language} val={percentage} />
+        <ResumeBtn />
     </div>
   )
 }

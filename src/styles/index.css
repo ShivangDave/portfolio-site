@@ -18,10 +18,12 @@
 
 html, body {
   margin: 0px;
+  min-height: 100%;
 }
 
 .main-container {
   overflow-x: hidden;
+  height: 100vh;
 }
 
 .intro-container {
@@ -46,6 +48,7 @@ html, body {
   border: 2px transparent;
   border-radius: 40px;
   background-color: var(--accent);
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 
   display: flex;
   flex-direction: column;
@@ -61,9 +64,17 @@ html, body {
 
 .clickme{
   border: 0px;
+  height: 50px;
+  width: 50px;
+
   font-family: 'Quicksand';
   cursor: pointer;
   text-decoration: none;
+}
+
+.clickme img{
+  height:100%;
+  width: 100%;
 }
 
 .takemetothetop {
@@ -73,7 +84,10 @@ html, body {
   z-index: 99;
   border: none;
   outline: none;
+
   background-color: #ffffff;
+  box-shadow: -5px -5px rgb(0,0,0,0.3);
+
   color: var(--accent); /* Text color */
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 15px; /* Some padding */
@@ -102,23 +116,9 @@ html, body {
   color: var(--accent);
 }
 
-.navbar-avatar-container {
-  height: 110px;
-  width: 110px;
-  background-color: var(--accent);
-}
-
-.nav-avatar {
-  height: 110px;
-  width: 110px;
-  border-radius: 55px;
-}
-
-
-
 
 .skills-container {
-  height: 100vh;
+  min-height: 100%;
   background-color: var(--accent);
 
   color: white;
@@ -141,8 +141,9 @@ html, body {
 .loader-container {
   border-radius: 50%;
   background-color: white;
-  margin: 15px;
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 
+  margin: 15px;
   padding: 10px;
 
   font-family: 'Quicksand';
@@ -154,8 +155,9 @@ html, body {
 
   border-radius: 50%;
   background-color: white;
-  margin: 15px;
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 
+  margin: 15px;
   padding: 2px;
 
   font-family: 'Quicksand';
@@ -193,11 +195,14 @@ html, body {
   display: flex;
   justify-content: center;
 
-  margin-top: 70px;
-  background-color: white;
   height: 50px;
   width: 200px;
+
+  background-color: white;
   border-radius: 50px;
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
+
+  margin: 20px;
   padding: 5px;
 }
 
@@ -218,8 +223,12 @@ html, body {
   text-decoration-color: none;
 }
 
+
+
 .projects-container {
-  height: 100vh;
+
+  min-height: 100%;
+
   background-color: white;
   color: var(--accent);
   font-family: 'Raleway Light';
@@ -240,10 +249,15 @@ html, body {
   align-items: center;
   flex-wrap: wrap;
 
-  margin: 15px;
+  margin: 20px;
 
   border: 2px solid var(--accent);
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
   border-radius: 50%;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 
   min-height: 200px;
   min-width: 200px;
@@ -257,9 +271,26 @@ html, body {
   text-align: center;
 }
 
+.project-text {
+  background-color: rgb(1,1,1,0.6);
+
+  min-height: 180px;
+  min-width: 180px;
+
+  max-height: 180px;
+  max-width: 180px;
+  border-radius: 50%;
+
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
 
 .posts-container {
-  height: 100vh;
+  min-height: 100%;
   background-color: var(--accent);
 
   display: flex;
@@ -312,21 +343,71 @@ html, body {
 
 .gallery-container {
 
-  height: 100vh;
-
   background-color: white;
   color: var(--accent);
   font-family: 'Raleway Light';
   font-size: 20px;
 
   display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  padding: 100px;
+}
+
+.gallery-card-container {
+  margin: 15px;
+
+  height: 100%;
+  min-width: 300px;
+  max-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+
+  cursor: pointer;
+
+  border: 1px solid rgb(0,0,0,0.2);
+  border-style: outset;
+  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
+}
+
+.gallery-card {
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+
+  padding: 10px;
+}
+
+.gallery-card img {
+  width: 100%;
+}
+
+.gallery-card-container p {
+  font-size: 20px;
+  font-weight: bold;
+  font-family: 'Quicksand';
+
+  color: white;
+  background-color: var(--accent);
+
+  max-height: 100%;
+  padding: 10px;
+  margin: 0;
+
+  text-align: center;
+}
+
+.gallery-link {
+  text-decoration: none;
 }
 
 .footer-container {
-  height: 30vh;
+  min-height: 30%;
   background-color: var(--accent);
 
   display: flex;
@@ -340,8 +421,15 @@ html, body {
 }
 
 .social-bar-container{
-  height: 70px;
   color: white;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.footer-icons {
+  height: 100%;
 }
 
 .social-bar-container img {
