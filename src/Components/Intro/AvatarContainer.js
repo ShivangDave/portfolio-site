@@ -10,7 +10,11 @@ export default (props) => {
       scale: [1, 2, 2, 1, 1],
       rotate: [0, 0, 270, 270, 0, 135, 0],
       borderRadius: ["20%", "20%", "50%", "50%", "20%", "50%", "55%"],
-      transition: { duration: 0.8 }
+      transition: {
+        duration: 0.8,
+        when: "beforeChildren",
+        staggerChildren: 0.1
+      },
     },
     hidden: { scale: 0 },
   }
