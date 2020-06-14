@@ -7,8 +7,10 @@ const projects = require('./static/projects.json');
 
 export default ({ setSection }) => {
 
-  const [allProjects, setProjects] = useState([])
+  const [allProjects, setProjects] = useState([]);
   const [ref,inView] = useInView({ threshold: 0.6 });
+
+  const [showBackground,setShowBackground] = useState(null);
 
   useEffect(() => {
     if(inView){
@@ -19,12 +21,19 @@ export default ({ setSection }) => {
   },[inView,setSection])
 
   return (
-    <div ref={ref} className={'projects-container'}>
-      {
-        allProjects.map((project,index) => {
-          return <ProjectCard key={index} index={index} project={project} />
-        })
-      }
-    </div>
+    <>
+      <span className={'project-hint'}> hint: cards can be dragged around. </span>
+      <div ref={ref} className={'projects-container'}>
+        {
+          allProjects.map((project,index) => {
+            return <ProjectCard
+                  showBackground={showBackground}
+                  setShowBackground={setShowBackground}
+                  key={index} index={index} project={project}
+                />
+          })
+        }
+      </div>
+    </>
   )
 }

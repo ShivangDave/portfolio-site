@@ -16,30 +16,39 @@ export default (props) => {
     }
   }
 
-  const projectCard = () => {
-
-    return (
-      <a href={project.desc.url}
-        target={'_blank'} className={'gallery-link'} rel="noopener noreferrer">
-        <motion.div
-          variants={animateProjectCard}
-          initial={'hidden'}
-          whileHover={'visible'}
-          whileTap={'visible'}
-          className={'project-card-container'}
-          style={{ backgroundImage: `url(${project.img})` }}
-        >
-          <div className={'project-text'}>
-            <span> { project.title } </span>
-          </div>
-        </motion.div>
-      </a>
-    )
-  }
+  const bgImage = project.img && props.showBackground === props.index ? `url(${project.img})` : ``
+  const showText = bgImage !== `` ? false : true
 
   return (
-    <>
-      { projectCard() }
-    </>
+    <motion.div
+      drag
+      dragConstraints={{
+        top: -150,
+        left: -150,
+        right: 150,
+        bottom: 150,
+      }}
+      onMouseEnter={() => props.setShowBackground(props.index) }
+      onMouseLeave={() => props.setShowBackground(null) }
+      className={'gallery-link'}
+    >
+      <motion.div
+        variants={animateProjectCard}
+        initial={'hidden'}
+        whileHover={'visible'}
+        whileTap={'visible'}
+        className={'project-card-container'}
+      >
+        <div className={'project-text'}
+          onClick={() => window.open(`${project.desc.url}`, "_blank")}
+            style={{ backgroundImage: bgImage }}>
+          {
+            showText && (
+              <span> { project.title } </span>
+            )
+          }
+        </div>
+      </motion.div>
+    </motion.div>
   )
 }

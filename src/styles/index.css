@@ -282,15 +282,11 @@ html, body {
   align-items: center;
   flex-wrap: wrap;
 
-  margin: 20px;
+  margin: 15px;
 
   border: 2px solid var(--accent);
   box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
   border-radius: 50%;
-
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
 
   min-height: 200px;
   min-width: 200px;
@@ -305,7 +301,8 @@ html, body {
 }
 
 .project-text {
-  background-color: rgb(1,1,1,0.6);
+  background-color: var(--accent);
+  color: white;
 
   min-height: 180px;
   min-width: 180px;
@@ -319,8 +316,29 @@ html, body {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: repeat;
+
+  cursor: grab;
 }
 
+.project-text a {
+  text-decoration: none;
+  color: white;
+}
+
+.project-hint{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px;
+
+  font-family: 'Raleway Light';
+  font-size: 15px;
+  color: var(--accent);
+}
 
 .posts-container {
   min-height: 100%;
