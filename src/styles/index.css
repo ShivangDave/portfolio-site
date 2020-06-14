@@ -229,7 +229,7 @@ html, body {
   padding: 5px;
 }
 
-.resume-btn{
+.resume-btn {
   height: 100%;
   width: 100%;
   border-radius: 50px;
@@ -246,7 +246,15 @@ html, body {
   text-decoration-color: none;
 }
 
-
+.resume-btn-container a {
+  border: none;
+  color: var(--accent);
+  font-size: 20px;
+  font-family: 'Raleway Light';
+  cursor: pointer;
+  text-decoration-color: none;
+  outline: none;
+}
 
 .projects-container {
 

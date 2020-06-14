@@ -16,7 +16,14 @@ export default (props) => {
       whileTap = {'onInteraction'}
       whileHover={'onInteraction'}
       className={'resume-btn-container'}>
-      <button className={'resume-btn'}> Resume </button>
+      <button className={'resume-btn'}>
+        <a href={'https://drive.google.com/file/d/1t5-n9GkHas6m1k3jDgc-kL-aYR-OYYGn/view?usp=sharing'}
+          target={'_blank'}
+          rel="noopener noreferrer"
+        >
+          Resume
+        </a>
+      </button>
     </motion.div>
   )
 }
