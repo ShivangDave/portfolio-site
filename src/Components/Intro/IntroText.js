@@ -6,15 +6,13 @@ export default () => {
 
   const introTextVariants = {
     visible: {
-     fontSize: 50,
-     color: 'rgba(253, 177, 177, 1)',
-     scale: 1,
-     opacity: 1,
-     transition: { delay: 2, duration: 0.5 }
+     x: 0,
+     y: 50,
+     scale: 1
    },
     hidden: {
+      y: 100,
       scale: 0,
-      opacity: 0,
       transition: { delay: 2, duration: 0.5 }
     }
   }
