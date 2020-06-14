@@ -40,6 +40,29 @@ html, body {
 }
 
 .intro {
+  color: var(--accent);
+  font-size: 50px;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 3px solid var(--accent); /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  width: 320px;
+  animation:
+    typing 1s steps(10) 1s 1 normal both,
+    blink-caret .75s step-end infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from { width: 0px }
+  to { width: 320px }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: var(--accent); }
 }
 
 .avatar-container {

@@ -5,9 +5,9 @@ export default (props) => {
 
   const scrollDownBtnVariants = {
     visible: {
-        y: [40,100,40,100],
+        y: [100,150,100,150],
         transition: {
-          duration: 3,
+          duration: 2,
           yoyo: Infinity
         }
     },

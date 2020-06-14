@@ -11,7 +11,7 @@ import TopButton from './Navigation/TopButton';
 import CollapsableNavBar from './Navigation/CollapsableNavBar';
 
 const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40shivang_dave'
-const imageUrl = 'https://cors-anywhere.herokuapp.com/https://instagram-api-wrapper.herokuapp.com/pictures'
+const imageUrl = 'https://instagram-api-wrapper.herokuapp.com/pictures'
 
 export default () => {
 
@@ -29,12 +29,12 @@ export default () => {
       setPosts(feed.items)
     })
 
-    fetch(imageUrl)
-    .then(res => res.json())
-    .then(feed => {
-      console.log('fetching images')
-      setPictures(feed)
-    })
+    // fetch(imageUrl)
+    // .then(res => res.json())
+    // .then(feed => {
+    //   console.log('fetching images')
+    //   setPictures(feed)
+    // })
   },[])
 
   const navControls = () => {
