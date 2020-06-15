@@ -29,12 +29,12 @@ export default () => {
       setPosts(feed.items)
     })
 
-    // fetch(imageUrl)
-    // .then(res => res.json())
-    // .then(feed => {
-    //   console.log('fetching images')
-    //   setPictures(feed)
-    // })
+    fetch(imageUrl)
+    .then(res => res.json())
+    .then(feed => {
+      console.log('fetching images')
+      setPictures(feed)
+    })
   },[])
 
   const navControls = () => {

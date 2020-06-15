@@ -22,7 +22,10 @@ export default ({ setSection }) => {
 
   return (
     <>
-      <span className={'project-hint'}> hint: cards can be dragged around. </span>
+      <span className={'project-hint'}>
+        Note: Cards can be dragged around.
+        Hover to preview and Double Click to visit the link.
+      </span>
       <div ref={ref} className={'projects-container'}>
         {
           allProjects.map((project,index) => {

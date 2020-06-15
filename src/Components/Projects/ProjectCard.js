@@ -40,7 +40,7 @@ export default (props) => {
         className={'project-card-container'}
       >
         <div className={'project-text'}
-          onClick={() => window.open(`${project.desc.url}`, "_blank")}
+          onDoubleClick={() => window.open(`${project.desc.url}`, "_blank")}
             style={{ backgroundImage: bgImage }}>
           {
             showText && (
