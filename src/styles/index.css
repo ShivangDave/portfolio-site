@@ -41,7 +41,7 @@ html, body {
 
 .intro {
   color: var(--accent);
-  font-size: 50px;
+  font-size: 40px;
   overflow: hidden; /* Ensures the content is not revealed until the animation */
   border-right: 3px solid var(--accent); /* The typwriter cursor */
   white-space: nowrap; /* Keeps the content on a single line */
@@ -148,7 +148,7 @@ html, body {
 
   color: white;
   font-family: 'Raleway Light';
-  font-size: 40px;
+  font-size: 14px;
 
   display: flex;
   flex-direction: row;
@@ -157,62 +157,19 @@ html, body {
   flex-wrap: wrap;
 }
 
-.loader-container-parent{
+.graph-container {
   display: flex;
+  flex-flow: column;
   justify-content: center;
-  flex-wrap: wrap;
+  align-items: center;
+
+  height: 100%;
+  width: 100%;
 }
 
-.loader-container {
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
-
-  margin: 15px;
-  padding: 10px;
-
-  font-family: 'Quicksand';
-  font-size: 26px !important;
-  color: var(--accent);
-}
-
-.small-loader-container{
-
-  border-radius: 50%;
-  background-color: white;
-  box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
-
-  margin: 15px;
-  padding: 2px;
-
-  font-family: 'Quicksand';
-  font-size: 16px !important;
-  color: var(--accent);
-  text-align: center;
-}
-
-.small-loader {
-  border-radius: 50%;
-
-  min-width: 90px;
-  min-height: 90px;
-
-  max-width: 90px;
-  max-height: 90px;
-}
-
-.small-loader text{
-  font-family: 'Quicksand';
-  font-size: 1px !important;
-  height: 200px !important;
-  width: 200px !important;
-}
-
-.loader {
-  border-radius: 50%;
-
-  max-width: 150px;
-  max-height: 150px;
+.graph-container svg {
+  height: 100%;
+  width: 100%;
 }
 
 .resume-btn-container{
@@ -220,11 +177,11 @@ html, body {
   display: flex;
   justify-content: center;
 
-  height: 50px;
+  height: 40px;
   width: 200px;
 
   background-color: white;
-  border-radius: 50px;
+  border-radius: 40px;
   box-shadow: 2px 1px 2px 1px rgb(0,0,0,0.2);
 
   margin: 20px;
