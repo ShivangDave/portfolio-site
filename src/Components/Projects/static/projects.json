@@ -2,7 +2,7 @@
   "projects": [
     {
       "title": "E2EE Photoapp API",
-      "img": "",
+      "img": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
       "desc": {
         "name": "E2EE Photo Sharing App",
         "status": "WIP",
@@ -15,7 +15,7 @@
     },
     {
       "title": "E2EE Photoapp",
-      "img": "",
+      "img": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
       "desc": {
         "name": "E2EE Photo Sharing App",
         "status": "WIP",
