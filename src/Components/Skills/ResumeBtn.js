@@ -17,7 +17,7 @@ export default (props) => {
       whileHover={'onInteraction'}
       className={'resume-btn-container'}>
       <button className={'resume-btn'}>
-        <a href={'https://drive.google.com/file/d/1t5-n9GkHas6m1k3jDgc-kL-aYR-OYYGn/view?usp=sharing'}
+        <a href={'https://drive.google.com/file/d/190Y2zXn8lq5ABR3q07rXX66DAr9r0mEV/view?usp=sharing'}
           target={'_blank'}
           rel="noopener noreferrer"
         >
