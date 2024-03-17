@@ -62,7 +62,6 @@ export default () => {
       <Skills setSection={setSection} />
       <Projects setSection={setSection} />
       <Posts posts={posts} setSection={setSection} />
-      <Gallery pictures={[]} setSection={setSection} />
       <Footer />
     </div>
   );
