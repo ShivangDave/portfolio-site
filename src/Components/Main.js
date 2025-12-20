@@ -4,65 +4,40 @@ import Intro from './Intro/Intro';
 import Skills from './Skills/Skills';
 import Projects from './Projects/Projects';
 import Posts from './Posts/Posts';
-import Gallery from './Gallery/Gallery';
 import Footer from './Footer/Footer';
 
-import TopButton from './Navigation/TopButton';
-import CollapsableNavBar from './Navigation/CollapsableNavBar';
-
 const feedUrl = 'https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40shivang-dave'
-// const imageUrl = 'https://instagram-api-wrapper.herokuapp.com/pictures'
 
 export default () => {
 
-  const container = React.createRef()
-
-  const [posts,setPosts] = useState([])
-  // const [pictures,setPictures] = useState([])
-  const [currentSection,setSection] = useState(0)
+  const [posts, setPosts] = useState([])
+  const [scrollY, setScrollY] = useState(0)
 
   useEffect(() => {
     fetch(feedUrl)
-    .then(res => res.json())
-    .then(feed => {
-      if(feed.items){
-        setPosts(feed.items)
-      }else{
-        setPosts([])
-      }
-    })
+      .then(res => res.json())
+      .then(feed => {
+        if(feed.items){
+          setPosts(feed.items)
+        }else{
+          setPosts([])
+        }
+      })
   },[])
 
-  const navControls = () => {
-    return (
-      currentSection > 0 && (
-        <>
-          <CollapsableNavBar currentSection={currentSection} />
-          <TopButton toTheTop={toTheTop} />
-        </>
-      )
-    )
-  }
-
-  const toTheTop = () => {
-    container.current.scrollTo({top: 0, behavior: 'smooth' });
-  }
-
-  const toSkills = () => {
-    container.current.scrollTo({
-      top: container.current.offsetHeight - 100,
-      behavior: 'smooth'
-    });
-  }
+  useEffect(() => {
+    const handleScroll = () => setScrollY(window.scrollY)
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   return (
-    <div ref={container} className={'main-container'}>
-      { navControls() }
-      <Intro setSection={setSection} toSkills={toSkills} />
-      <Skills setSection={setSection} />
-      <Projects setSection={setSection} />
-      <Posts posts={posts} setSection={setSection} />
+    <main className={'app-wrapper'}>
+      <Intro scrollY={scrollY} />
+      <Skills />
+      <Projects />
+      <Posts posts={posts} />
       <Footer />
-    </div>
+    </main>
   );
 }

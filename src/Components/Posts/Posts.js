@@ -1,28 +1,34 @@
-import React, { useEffect } from 'react';
-import PostCard from './PostCard';
-import { useInView } from 'react-intersection-observer'
+import React from 'react';
 
-export default ({ setSection, posts }) => {
-
-  const [ref,inView] = useInView({ threshold: 0.4 });
-
-  useEffect(() => {
-    if(inView){
-      console.log('this is posts')
-      setSection(3)
-    }
-  },[inView,setSection])
+export default ({ posts }) => {
 
   return (
-    <div ref={ref} className={'posts-container'}>
-      {
-        posts.map((post,index) =>
-          <PostCard
-            key={post.guid}
-            post={post}
-            index={index}
-          />)
-      }
-    </div>
+    <section id="blog" className={'posts-container'}>
+      <div className={'section-header'}>
+        <h2 className={'section-title'}>Latest Articles</h2>
+        <p className={'section-subtitle'}>
+          Insights, tutorials, and thoughts on web development
+        </p>
+      </div>
+      
+      <div className={'posts-grid'}>
+        {posts.slice(0, 6).map((post, idx) => (
+          <a key={idx} href={post.link} target="_blank" rel="noopener noreferrer" className={'post-card'}>
+            {post.thumbnail && (
+              <img src={post.thumbnail} alt={post.title} className={'post-image'} />
+            )}
+            <h3 className={'post-title'}>
+              {post.title.replace(/&amp;/g, '&')}
+            </h3>
+            <p className={'post-excerpt'}>
+              Read the full article on Medium
+            </p>
+            <span className={'post-cta'}>
+              Read More →
+            </span>
+          </a>
+        ))}
+      </div>
+    </section>
   )
 }

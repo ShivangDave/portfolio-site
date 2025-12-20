@@ -24,32 +24,35 @@ export default ({ pictures, setSection }) => {
 
   return (
     <div ref={ref} className={'gallery-container'}>
-      {
-        pictures.map((picture,index) => {
-          const caption = picture.caption
+      <h2>Gallery</h2>
+      <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', width: '100%', gap: '30px' }}>
+        {
+          pictures.map((picture,index) => {
+            const caption = picture.caption
 
-          const pre = caption.length > 100 ? caption.substring(0,100) : caption
-          const post = caption.length > 40 ? '#tech' : ''
+            const pre = caption.length > 100 ? caption.substring(0,100) : caption
+            const post = caption.length > 40 ? '#tech' : ''
 
-          const cardCaption = pre + '... ' + post
+            const cardCaption = pre + '... ' + post
 
-          return (
-            <motion.a key={index} className={'gallery-link'}
-              variants={pictureGridVariants}
-              animate={'visible'}
-              whileTap={'onInteraction'}
-              whileHover={'onInteraction'}
-              href={picture.permalink} alt={'link'} rel="noopener noreferrer" target={'_blank'}>
-              <div className={'gallery-card-container'}>
-                <div className={'gallery-card'}>
-                  <img src={picture.url} alt={''} draggable={'false'} />
+            return (
+              <motion.a key={index} className={'gallery-link'}
+                variants={pictureGridVariants}
+                animate={'visible'}
+                whileTap={'onInteraction'}
+                whileHover={'onInteraction'}
+                href={picture.permalink} alt={'link'} rel="noopener noreferrer" target={'_blank'}>
+                <div className={'gallery-card-container'}>
+                  <div className={'gallery-card'}>
+                    <img src={picture.url} alt={''} draggable={'false'} />
+                  </div>
+                  <p>{ cardCaption }</p>
                 </div>
-                <p>{ cardCaption }</p>
-              </div>
-            </motion.a>
-          )
-        })
-      }
+              </motion.a>
+            )
+          })
+        }
+      </div>
     </div>
   )
 }
