@@ -4,9 +4,3 @@
 
 #### URL: [https://shivangdave.com](https://shivangdave.com)
 
-#### To do:
-
-- [ ] Refactor Skills Section
-- [ ] Deprecate Gallery Section
-- [ ] Adding contact form
-- [ ] Refactor animations efficiency 
