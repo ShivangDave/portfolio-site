@@ -7,7 +7,7 @@ export default ({ posts }) => {
       <div className={'section-header'}>
         <h2 className={'section-title'}>Latest Articles</h2>
         <p className={'section-subtitle'}>
-          Insights, tutorials, and thoughts on web development
+          Insights, tutorials, and thoughts
         </p>
       </div>
       
