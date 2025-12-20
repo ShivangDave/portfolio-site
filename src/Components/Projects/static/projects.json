@@ -1,46 +1,6 @@
 {
   "projects": [
     {
-      "title": "E2EE Photoapp API",
-      "img": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-      "desc": {
-        "name": "E2EE Photo Sharing App",
-        "status": "WIP",
-        "url": "https://github.com/ShivangDave/photoapp-api",
-        "tags": [
-          "Ruby on Rails", "REST", "Travis CI", "Heroku",
-          "RSpec", "Docker", "CI", "CD"
-        ]
-      }
-    },
-    {
-      "title": "E2EE Photoapp",
-      "img": "https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png",
-      "desc": {
-        "name": "E2EE Photo Sharing App",
-        "status": "WIP",
-        "url":"https://github.com/ShivangDave/photoapp"
-      },
-      "tags": [
-        "React", "GraphQL", "Heroku", "Docker", "Travis CI",
-        "Jest", "Mocha", "CI", "CD"
-      ]
-    },
-    {
-      "title": "Blog",
-      "img": "https://media-exp1.licdn.com/dms/image/C5622AQFrxX7EiRuN5w/feedshare-shrink_800/0?e=1594857600&v=beta&t=fqPMlkg2VqkOUB6bWCZ3CBgJEGEmB-2Jy6cR6qswTkI",
-      "desc": {
-        "name": "Personal Blog / Portfolio",
-        "status": "Production",
-        "url":"https://github.com/ShivangDave/blog-web-app"
-      },
-      "tags": [
-        "React", "DigitalOcean", "CI", "CD",
-        "Ruby on Rails", "REST", "Semantic UI",
-        "Nginx", "GitHub Webhooks", "SSL", "Google Cloud"
-      ]
-    },
-    {
       "title": "Blog Mobile App",
       "img": "https://github.com/ShivangDave/Blog-Mobile-App/raw/master/src/1.PNG",
       "desc": {

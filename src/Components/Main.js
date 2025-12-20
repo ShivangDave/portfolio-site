@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import Intro from './Intro/Intro';
-import Skills from './Skills/Skills';
+import Timeline from './Timeline/Timeline';
 import Projects from './Projects/Projects';
 import Posts from './Posts/Posts';
 import Footer from './Footer/Footer';
@@ -34,7 +34,7 @@ export default () => {
   return (
     <main className={'app-wrapper'}>
       <Intro scrollY={scrollY} />
-      <Skills />
+      <Timeline />
       <Projects />
       <Posts posts={posts} />
       <Footer />

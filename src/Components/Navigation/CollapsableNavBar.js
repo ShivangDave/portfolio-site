@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 export default ({ currentSection }) => {
 
   const sectionTitle = {
-    1: 'Skills',
+    1: 'Career',
     2: 'Projects',
     3: 'Blogs',
     4: 'Gallery',

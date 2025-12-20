@@ -6,18 +6,17 @@ export default ({ scrollY }) => {
     <section className={'intro-container'}>
       <div className={'intro-content'}>
         <h1 className={'intro-title'}>
-          Crafting Digital
-          <br />
-          Experiences
+          Hey, I'm Shivang :)
         </h1>
         <p className={'intro-subtitle'}>
-          Full-stack developer building beautiful, performant applications with modern technologies.
+          I turn caffeine into features and bugs into... learning opportunities. <br />
+          Professional bug whisperer!
         </p>
         <div className={'intro-cta'}>
           <a href="#projects" className={'btn btn-primary'}>
             View My Work
           </a>
-          <a href="#projects" className={'btn btn-secondary'}>
+          <a href="mailto:mail@shivangdave.com" className={'btn btn-secondary'}>
             Get In Touch
           </a>
         </div>
@@ -25,7 +24,7 @@ export default ({ scrollY }) => {
       
       <div className={'intro-visual'}>
         <div className={'avatar-blob'}>
-          <img src="/img/me.jpg" alt="Profile" onError={(e) => { e.target.src = '/img/github.png' }} />
+          <img src="/img/me.png" alt="Shivang Dave" />
         </div>
       </div>
 
