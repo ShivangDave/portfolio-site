@@ -5,17 +5,12 @@
   "dependencies": {
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.1",
-    "@testing-library/user-event": "^14.6.1",
     "framer-motion": "^12.23.26",
-    "lodash": "^4.17.21",
     "react": "^19.2.3",
     "react-circular-progressbar": "^2.2.0",
-    "react-device-detect": "^2.2.3",
     "react-dom": "^19.2.3",
-    "react-ga": "^3.3.1",
     "react-intersection-observer": "^10.0.0",
-    "react-scripts": "^5.0.1",
-    "text-to-svg": "^3.1.5"
+    "react-scripts": "^0.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
