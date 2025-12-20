@@ -10,7 +10,8 @@
     "react-circular-progressbar": "^2.2.0",
     "react-dom": "^19.2.3",
     "react-intersection-observer": "^10.0.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^5.0.1",
+    "yallist": "^5.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
