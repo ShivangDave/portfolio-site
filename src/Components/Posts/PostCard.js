@@ -6,8 +6,24 @@ export default (props) => {
 
   const post = props.post
 
+  const postVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, delay: props.index * 0.1 }
+    }
+  }
+
   const RenderCard = () => (
-    <motion.div className={'post-card'}>
+    <motion.div
+      className={'post-card'}
+      variants={postVariants}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "0px 0px -100px 0px" }}
+      whileHover={{ y: -5 }}
+    >
       <CardImage thumb={post.thumbnail} />
       <CardText {...post} />
     </motion.div>

@@ -1,42 +1,56 @@
-import React, { useState, useEffect } from 'react';
-import ProjectCard from './ProjectCard';
-
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
 
 const projects = require('./static/projects.json');
 
-export default ({ setSection }) => {
+export default () => {
 
-  const [allProjects, setProjects] = useState([]);
-  const [ref,inView] = useInView({ threshold: 0.6 });
-
-  const [showBackground,setShowBackground] = useState(null);
-
-  useEffect(() => {
-    if(inView){
-      setProjects(projects['projects'])
-      setSection(2)
-      console.log('this is projects')
-    }
-  },[inView,setSection])
+  const projectList = projects['projects'] || [];
 
   return (
-    <>
-      <span className={'project-hint'}>
-        Note: Cards can be dragged around.
-        Hover to preview and Double Click to visit the link.
-      </span>
-      <div ref={ref} className={'projects-container'}>
-        {
-          allProjects.map((project,index) => {
-            return <ProjectCard
-                  showBackground={showBackground}
-                  setShowBackground={setShowBackground}
-                  key={index} index={index} project={project}
-                />
-          })
-        }
+    <section id="projects" className={'projects-container'}>
+      <div className={'section-header'}>
+        <h2 className={'section-title'}>Projects</h2>
+        <p className={'section-subtitle'}>
+          Building innovative solutions with cutting-edge technologies
+        </p>
       </div>
-    </>
+      
+      <div className={'projects-grid'}>
+        {projectList.map((project, idx) => (
+          <div key={idx} className={'project-card'}>
+            <div className={'project-image'}>
+              {project.img ? (
+                <img 
+                  src={project.img} 
+                  alt={project.title}
+                  onError={(e) => {
+                    e.target.style.display = 'none';
+                    e.target.parentElement.innerHTML = '<span role="img" aria-label="project">📱</span>';
+                  }}
+                />
+              ) : (
+                <span role="img" aria-label="project">📱</span>
+              )}
+            </div>
+            <div className={'project-info'}>
+              <h3 className={'project-title'}>{project.title}</h3>
+              {(project.desc && project.desc.url) ? (
+                <a href={project.desc.url} target="_blank" rel="noopener noreferrer" className={'project-link'}>
+                  View Project →
+                </a>
+              ) : (
+                <span className={'project-link disabled'} aria-disabled="true">View Project →</span>
+              )}
+            </div>
+          </div>
+        ))}
+      </div>
+      
+      <div className={'projects-more'}>
+        <a href="https://github.com/ShivangDave" target="_blank" rel="noopener noreferrer" className={'btn btn-primary'}>
+          View More on GitHub →
+        </a>
+      </div>
+    </section>
   )
 }

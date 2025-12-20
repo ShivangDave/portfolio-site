@@ -1,80 +1,39 @@
-import React, { useEffect } from 'react';
-import { useInView } from 'react-intersection-observer';
+import React from 'react';
 
-import HighlightedSkills from './HighlightedSkills';
-import ResumeBtn from './ResumeBtn';
+export default () => {
 
-export default ({ setSection }) => {
-
-  const language = [
-    'Ruby',
-    'Ruby on Rails',
-    'Python',
-    'JavaScript',
-    'ReactJS',
-    'Redux',
-    'Node',
-    'React Native',
-    'HTML',
-    'CSS',
-    'Swift',
-    'Git',
-    'SQL',
-    'Postgres',
-    'MongoDB',
-    'AWS',
-    'Google Cloud',
-    'Heroku',
-    'Digital Ocean',
-    'Docker',
-    'KVM',
-    'Framer Motion'
-  ]
-  const percentage = [
-    95,
-    94,
-    80,
-    97,
-    97,
-    90,
-    92,
-    85,
-    92,
-    90,
-    80,
-    95,
-    90,
-    90,
-    83,
-    84,
-    84,
-    70,
-    80,
-    92,
-    70,
-    80
-  ]
-
-  const highlightedSkills = [
-    'Full Stack',
-    'Mobile Apps',
-    'Educator'
-  ]
-
-  const [ref,inView] = useInView({ threshold: 0.6 });
-
-  useEffect(() => {
-    if(inView){
-      console.log('this is skills')
-      setSection(1)
-    }
-  },[inView,setSection])
+  const skills = [
+    { name: 'React', level: '95%' },
+    { name: 'JavaScript', level: '97%' },
+    { name: 'Python', level: '85%' },
+    { name: 'Node.js', level: '90%' },
+    { name: 'UI/UX Design', level: '88%' },
+    { name: 'CSS/SCSS', level: '92%' },
+    { name: 'Git', level: '95%' },
+    { name: 'Docker', level: '80%' },
+    { name: 'AWS', level: '82%' },
+    { name: 'MongoDB', level: '88%' },
+    { name: 'PostgreSQL', level: '90%' },
+    { name: 'REST APIs', level: '96%' }
+  ];
 
   return (
-    <div ref={ref} id={'skills'} className={'skills-container'}>
-        <HighlightedSkills key={'large'} arr={highlightedSkills} />
-        <HighlightedSkills key={'small'} arr={language} val={percentage} />
-        <ResumeBtn />
-    </div>
-  )
+    <section id="skills" className={'skills-container'}>
+      <div className={'section-header'}>
+        <h2 className={'section-title'}>Skills & Expertise</h2>
+        <p className={'section-subtitle'}>
+          Expertise in modern web technologies and best practices
+        </p>
+      </div>
+      
+      <div className={'skills-grid'}>
+        {skills.map((skill, idx) => (
+          <div key={idx} className={'skill-card'}>
+            <div className={'skill-name'}>{skill.name}</div>
+            <div className={'skill-level'}>{skill.level}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }

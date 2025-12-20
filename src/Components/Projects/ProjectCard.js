@@ -8,11 +8,13 @@ export default (props) => {
 
   const animateProjectCard = {
     visible: {
-      scale: 1.1,
-      transition: { duration: 0.5 }
+      scale: 1.08,
+      y: -10,
+      transition: { duration: 0.4 }
     },
     hidden: {
-      scale: 1
+      scale: 1,
+      y: 0
     }
   }
 
@@ -28,9 +30,11 @@ export default (props) => {
         right: 150,
         bottom: 150,
       }}
+      dragElastic={0.1}
       onMouseEnter={() => props.setShowBackground(props.index) }
       onMouseLeave={() => props.setShowBackground(null) }
       className={'gallery-link'}
+      layout
     >
       <motion.div
         variants={animateProjectCard}
